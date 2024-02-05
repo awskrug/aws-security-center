@@ -1,0 +1,53 @@
+site_name: AWS Security Center
+nav:
+  - Home:
+    - 'Welcome': 'index.md'
+    - 'Change History': 'change_history.md'
+  - AWS 보안서비스:
+    - '사용자 관리': 'identity.md'
+    - '인프라 보안': 'infra_security.md'
+    - '데이터 보안': 'data_security.md'
+    - '거버넌스 & 탐지통제': 'detective_control.md'
+    - '침해 사고 대응': 'incident_response.md'
+  - 각 서비스 별 보안:
+    - 'Networking & Content Delivery': 'Networking_Content_Delivery.md'
+    - 'Developer Tools': 'Developer_Tools.md'
+    - 'Analytics': 'Analytics.md'
+    - 'Media Services': 'Media_Services.md'
+    - 'Database': 'Database.md'
+    - 'Storage': 'Storage.md'
+    - 'Compute': 'Compute.md'
+    - 'Containers': 'Containers.md'
+    - 'Machine Learning': 'Machine_Learning.md'
+    - 'Migration & Transfer': 'Migration_Transfer.md'
+    - 'Application Integration': 'Application_Integration.md'
+    - 'Satellite': 'Satellite.md'
+    - 'Robotics': 'Robotics.md'
+    - 'Blockchain': 'Blockchain.md'
+    - 'IoT': 'IoT.md'
+    - 'Customer Engagement': 'Customer_Engagement.md'
+    - 'Front-End Web & Mobile': 'Front-End Web & Mobile.md'
+    - 'AR & VR': 'AR_VR.md'
+    - 'Business Applications': 'Business_Applications.md'
+    - 'End User Computing': 'End_User_Computing.md'
+    - 'Game Development': 'Game_Development.md'
+    - 'AWS Cost Management': 'AWS_Cost_Management.md'
+    - 'Management & Governance': 'Management_Governance.md'
+    - 'Quantum_Computing': 'Quantum_Computing.md'
+    - 'SDK & Toolkits & ETC': 'SDK_Toolkit.md'
+  - AWS 규정준수:
+    - '컴플라이언스 관련 정보': 'compliance.md'
+    - '주요 질문 및 답변': 'compliance_faq.md'
+  - AWS 보안 관련정보:
+    - 'AWS 인프라': 'infra.md'
+    - '교육 및 백서': 'training_wp.md'
+    - '핸즈온 랩': 'hands_on_labs.md'
+  - AWS 보안파트너:
+    - '글로벌 파트너': 'global_partners.md'
+    - '국내 파트너': 'local_partners.md'
+extra_css:
+  - extra.css
+theme:
+  name: 'readthedocs'
+
+copyright: 'Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)'
