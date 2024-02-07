@@ -48,6 +48,6 @@ nav:
 extra_css:
   - extra.css
 theme:
-  name: 'readthedocs'
+  name: 'material'
 
 copyright: 'Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)'
