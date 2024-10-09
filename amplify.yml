@@ -4,10 +4,13 @@ frontend:
     # IMPORTANT - Please verify your build commands
     preBuild:
       commands:
+        - python3 -m venv venv
+        - source venv/bin/activate
         - python3 -m pip install --upgrade pip
         - python3 -m pip install -r requirements.txt
     build:
       commands:
+        - source venv/bin/activate
         - mkdocs build
   artifacts:
     # IMPORTANT - Please verify your build output directory
