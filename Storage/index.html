@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Database/">
+      
+      
+        <link rel="next" href="../Compute/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Storage - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Storage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-lustre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon FSx for Lustre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-windows-file-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon FSx for Windows File Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Backup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-elastic-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Elastic Disaster Recovery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-lustre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon FSx for Lustre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-windows-file-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon FSx for Windows File Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Backup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-elastic-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Elastic Disaster Recovery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="storage">Storage</h1>
+<h2 id="s3"><a href="https://aws.amazon.com/ko/s3/?nc2=h_m1">S3</a></h2>
+<p>Amazon Simple Storage Service(Amazon S3)는 업계 최고의 확장성과 데이터 가용성 및 보안과 성능을 제공하는 객체 스토리지 서비스입니다. S3의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/security.html">Amazon S3 보안</a></li>
+<li>Tool - <a href="https://cloudonaut.io/s3-virusscan-aws-security/">S3 VirusScan AWS Security</a></li>
+<li>Tool - <a href="http://s3browser.com/">S3 Browser</a></li>
+<li>GIT - <a href="https://github.com/upsidetravel/bucket-antivirus-function">bucket-antivirus-function</a></li>
+<li>GIT - <a href="https://github.com/truework/lambda-s3-antivirus/">Truework S3 Antivirus</a></li>
+<li>Support - <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/cross-account-access-denied-error-s3/">KMS 암호화 S3 버킷에 대한 교차 계정 액세스 문제 해결</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/amazon-s3-consistently-raises-the-bar-in-data-security/">Learn how to use two important Amazon S3 security-features: Block Public Access and S3 Object Lock</a></li>
+<li>Blog -<a href="https://aws.amazon.com/blogs/developer/generate-an-amazon-s3-presigned-url-with-sse-using-the-aws-sdk-for-c/">Generate an Amazon S3 presigned URL with SSE using the AWS SDK for C++</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/automatically-detect-and-protect-sensitive-data-in-amazon-s3-using-dataguise-dgsecure/">Automatically Detect and Protect Sensitive Data in Amazon S3 Using Dataguise DgSecure</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-config-auto-remediation-s3-compliance/">Amazon S3 bucket compliance using AWS Config Auto Remediation feature</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-monitor-for-and-respond-to-amazon-s3-buckets-allowing-public-access/">How to Use AWS Config to Monitor for and Respond to Amazon S3 Buckets Allowing Public Access</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-kms-and-iam-to-enable-independent-security-controls-for-encrypted-data-in-s3/">How to use KMS and IAM to enable independent security controls for encrypted data in S3</a></li>
+<li>Blog[EXT] - <a href="https://blog.truework.com/2018-07-09-s3-antivirus-lambda-function/">Using AWS Lambda &amp; Node.js to scan your S3 uploads</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/tighten-s3-permissions-iam-users-and-roles-using-access-history-s3-actions/">Tighten S3 permissions for your IAM users and roles using access history of S3 actions</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-retroactively-encrypt-existing-objects-in-amazon-s3-using-s3-inventory-amazon-athena-and-s3-batch-operations/">How to retroactively encrypt existing objects in Amazon S3 using S3 Inventory, Amazon Athena, and S3 Batch Operations</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/analyzing-amazon-s3-server-access-logs-using-amazon-es/">Analyzing Amazon S3 server access logs using Amazon ES</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/amazon-s3-update-three-new-security-access-control-features/">Amazon S3 Update – Three New Security &amp; Access Control Features</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/handling-data-erasure-requests-in-your-data-lake-with-amazon-s3-find-and-forget/">Handling data erasure requests in your data lake with Amazon S3 Find and Forget</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/amazon-s3-update-strong-read-after-write-consistency/">Amazon S3 Update – Strong Read-After-Write Consistency</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/changing-your-amazon-s3-encryption-from-s3-managed-encryption-sse-s3-to-aws-key-management-service-sse-kms/">Changing your Amazon S3 encryption from S3-Managed to AWS KMS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/limit-access-to-amazon-s3-buckets-owned-by-specific-aws-accounts/">Limit access to Amazon S3 buckets owned by specific AWS accounts</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/automate-amazon-s3-versioning-using-aws-config-rules/">Automate Amazon S3 versioning using AWS Config rules</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/managing-amazon-s3-access-with-vpc-endpoints-and-s3-access-points/">Managing Amazon S3 access with VPC endpoints and S3 Access Points</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/securing-data-in-a-virtual-private-cloud-using-amazon-s3-access-points/">Securing data in a virtual private cloud using Amazon S3 Access Points</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/setting-up-cross-account-access-with-s3-access-points/">Setting up cross-account Amazon S3 access with S3 Access Points</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-scale-authorization-needs-using-attribute-based-access-control-with-s3/">How to scale your authorization needs by using attribute-based access control with S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/aws-partners-use-aws-privatelink-to-connect-privately-to-amazon-s3/">AWS Partners use AWS PrivateLink to connect privately to Amazon S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/protect-pii-using-amazon-s3-object-lambda-to-process-and-modify-data-during-retrieval/">Protect PII using Amazon S3 Object Lambda to process and modify data during retrieval</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/top-10-security-best-practices-for-securing-data-in-amazon-s3/">Top 10 security best practices for securing data in Amazon S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/apn/amazon-s3-malware-scanning-using-trend-micro-cloud-one-and-aws-security-hub/">Amazon S3 Malware Scanning Using Trend Micro Cloud One and AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/secure-hybrid-access-to-amazon-s3-using-aws-privatelink/">Secure hybrid access to Amazon S3 using AWS PrivateLink</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/ten-tips-for-multi-tenant-multi-region-object-replication-in-amazon-s3/">Ten tips for multi-tenant, multi-Region object replication in Amazon S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/centralizing-data-protection-and-compliance-in-amazon-neptune-with-aws-backup/">Centralizing data protection and compliance in Amazon Neptune with AWS Backup</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/storage/enhance-data-access-control-with-aws-transfer-family-and-amazon-s3-access-points/">Enhance data access control with AWS Transfer Family and Amazon S3 Access Points</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/architecture/choosing-your-vpc-endpoint-strategy-for-amazon-s3/">Choosing Your VPC Endpoint Strategy for Amazon S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/managing-access-to-your-amazon-s3-objects-with-a-custom-authorizer/">Managing access to your Amazon S3 objects with a custom authorizer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/aws/new-simplify-access-management-for-data-stored-in-amazon-s3/">New – Simplify Access Management for Data Stored in Amazon S3</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/architecture/how-to-audit-and-report-s3-prefix-level-access-using-s3-access-analyzer/">How to Audit and Report S3 Prefix Level Access Using S3 Access Analyzer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/how-trend-micro-uses-amazon-s3-object-lambda-to-help-keep-sensitive-data-secure/">How Trend Micro uses Amazon S3 Object Lambda to help keep sensitive data secure</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/opensource/enabling-amazon-simple-storage-service-s3-access-points-in-apache-hadoop-s3a/">Enabling Amazon Simple Storage Service (Amazon S3) Access Points in Apache Hadoop S3A</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/storage/reduce-encryption-costs-by-using-amazon-s3-bucket-keys-on-existing-objects/">Reduce encryption costs by using Amazon S3 Bucket Keys on existing objects</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/publicsector/creating-access-control-mechanisms-highly-distributed-datasets/">Creating access control mechanisms for highly distributed datasets</a></li>
+</ul>
+<h2 id="efs"><a href="https://aws.amazon.com/ko/efs/?nc2=h_m1">EFS</a></h2>
+<p>Amazon EFS(Amazon Elastic File System)는 AWS 클라우드 서비스와 온프레미스 리소스에서 사용할 수 있는, 간단하고 확장 가능하며 탄력적인 완전관리형 NFS 파일 시스템을 제공합니다. EFS의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/efs/latest/ug/security-considerations.html">Amazon EFS의 보안</a></li>
+<li>백서 - <a href="https://docs.aws.amazon.com/whitepapers/latest/efs-encrypted-file-systems/efs-encrypted-file-systems.html">Encrypting File Data with Amazon Elastic File SystemEncryption of Data at Rest and in Transit</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/new-for-amazon-efs-iam-authorization-and-access-points/">New for Amazon EFS – IAM Authorization and Access Points</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/storage/mount-amazon-efs-file-systems-cross-account-from-amazon-eks/">Mount Amazon EFS file systems cross-account from Amazon EKS</a></li>
+</ul>
+<h2 id="amazon-fsx-for-lustre"><a href="https://aws.amazon.com/ko/fsx/lustre/?nc2=h_m1">Amazon FSx for Lustre</a></h2>
+<p>AWS Device Farm은 앱 테스트 서비스로서, 한 번에 많은 디바이스에서 Android, iOS 및 웹 앱을 테스트 및 상호 작용하거나 실시간으로 디바이스에서 문제를 재현할 수 있습니다. Amazon FSx for Lustre의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/fsx/latest/LustreGuide/security.html">Security in Amazon FSx for Lustre</a></li>
+</ul>
+<h2 id="amazon-fsx-for-windows-file-server"><a href="https://aws.amazon.com/ko/fsx/windows/?nc2=h_m1">Amazon FSx for Windows File Server</a></h2>
+<p>Amazon FSx for Windows File Server는 완전관리형 네이티브 Microsoft Windows 파일 시스템을 제공하므로, 파일 스토리지가 필요한 Windows 기반 애플리케이션을 손쉽게 AWS로 이전할 수 있습니다.  Amazon FSx for Windows File Server의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/fsx/latest/WindowsGuide/security.html">Security in Amazon FSx Windows File Server</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/file-access-auditing-is-now-available-for-amazon-fsx-for-windows-file-server/">File Access Auditing Is Now Available for Amazon FSx for Windows File Server</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/securely-search-unstructured-data-on-windows-file-systems-with-amazon-kendra-connector-for-amazon-fsx-for-windows-file-server/">Securely search unstructured data on Windows file systems with the Amazon Kendra connector for Amazon FSx for Windows File Server</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/securely-search-unstructured-data-on-windows-file-systems-with-amazon-kendra-connector-for-amazon-fsx-for-windows-file-server/">Securely search unstructured data on Windows file systems with the Amazon Kendra connector for Amazon FSx for Windows File Server</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/modernizing-with-aws/automating-amazon-fsx-for-windows-file-server-configuration/">Automating Amazon FSx for Windows File Server configuration for more efficient enforcement of security controls</a></li>
+</ul>
+<h2 id="s3-glacier"><a href="https://aws.amazon.com/ko/glacier/?nc2=h_m1">S3 Glacier</a></h2>
+<p>Amazon S3 Glacier 및 S3 Glacier Deep Archive는 데이터 아카이빙 및 장기 백업을 위한 안전하고 내구성이 뛰어나고 매우 저렴한 Amazon S3 클라우드 스토리지 클래스입니다. S3 Glacier의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/amazonglacier/latest/dev/security.html">Amazon S3 Glacier의 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/data-protection-for-your-cloud-journey-with-netbackup-8-2-and-aws/">Data Protection for Your Cloud Journey with NetBackup 8.2 and AWS</a></li>
+</ul>
+<h2 id="storage-gateway"><a href="https://aws.amazon.com/ko/storagegateway/?nc2=h_m1">Storage Gateway</a></h2>
+<p>AWS Storage Gateway는 사실상 무제한의 클라우드 스토리지에 대한 온프레미스 액세스 권한을 제공하는 하이브리드 클라우드 스토리지 서비스입니다. Storage Gateway의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/storagegateway/latest/userguide/security.html">AWS Storage Gateway의 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/aws-storage-gateway-adds-file-gateway-audit-logs/">AWS Storage Gateway adds File Gateway audit logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/aws-storage-gateway-adds-support-for-fips-140-2-compliant-endpoints-in-aws-govcloud-us-regions/">AWS Storage Gateway adds support for FIPS 140-2 compliant endpoints</a></li>
+</ul>
+<h2 id="aws-backup"><a href="https://aws.amazon.com/ko/backup/?nc2=h_m1">AWS Backup</a></h2>
+<p>AWS Backup은 완전관리형 백업 서비스로, 클라우드뿐 아니라 온프레미스에서도 AWS Storage Gateway를 사용해 AWS 서비스 전체에서 데이터 백업을 손쉽게 중앙집중화하고 자동화할 수 있습니다. AWS Backup의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/security-considerations.html">AWS Backup의 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/secure-recovery-with-cross-account-backup-and-cross-region-copy-using-aws-backup/">Secure data recovery with cross-account backup and Cross-Region copy using AWS Backup</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/cross-region-and-cross-account-backups-for-amazon-fsx-using-aws-backup/">Cross-Region and cross-account backups for Amazon FSx using AWS Backup</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/storage/managing-access-to-backups-using-service-control-policies-with-aws-backup/">Managing access to backups using service control policies with AWS Backup</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/aws/monitor-evaluate-and-demonstrate-backup-compliance-with-aws-backup-audit-manager/">Monitor, Evaluate, and Demonstrate Backup Compliance with AWS Backup Audit Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/simplify-auditing-your-data-protection-policies-with-aws-backup-audit-manager/">Simplify auditing your data protection policies with AWS Backup Audit Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/manage-backup-and-restore-of-amazon-documentdb-with-aws-backup/">Manage backup and restore of Amazon DocumentDB (with MongoDB compatibility) with AWS Backup</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/storage/enhance-the-security-posture-of-your-backups-with-aws-backup-vault-lock/">Enhance the security posture of your backups with AWS Backup Vault Lock</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/devops-automation-for-backup-compliance-in-aws-using-aws-backup-audit-manager/">DevOps automation for backup compliance in AWS using AWS Backup Audit Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/how-encryption-works-in-aws-backup/">How encryption works in AWS Backup</a></li>
+</ul>
+<h2 id="aws-elastic-disaster-recovery"><a href="https://aws.amazon.com/ko/disaster-recovery/">AWS Elastic Disaster Recovery</a></h2>
+<p>AWS Elastic Disaster Recovery은 AWS에 대한 확장 가능하고 비용 효율적인 애플리케이션 복구기능을 제공하고 있습니다. AWS Elastic Disaster Recovery의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/drs/latest/userguide/security.html">Security in AWS Elastic Disaster Recovery</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/storage/securely-installing-aws-replication-agent-using-aws-security-token-service/">Securely installing AWS Replication Agent using AWS Security Token Service</a></li>
+</ul>
+<h2 id="storage_1">Storage과 관련된 기타 유용한 링크들</h2>
+<p>준비중.</p>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

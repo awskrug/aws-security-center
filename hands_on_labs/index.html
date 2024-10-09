@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../training_wp/">
+      
+      
+        <link rel="next" href="../global_partners/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>핸즈온 랩 - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws-security" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              핸즈온 랩
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Workshop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-security-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Well Architected Security Labs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 서비스 관련 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 서비스별 보안 기능 관련 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      파트너 보안 제품들과 연동하는 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Workshop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-security-labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Well Architected Security Labs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 서비스 관련 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 서비스별 보안 기능 관련 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      파트너 보안 제품들과 연동하는 핸즈온 랩 및 데모
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="aws-security">AWS Security 관련 핸즈온 랩 및 데모</h1>
+<p>AWS 보안 관련 핸즈온 랩 및 데모 사이트 링크들을 모아 놓았습니다. AWS 보안 기능, 서비스, 파트너 제품, 모범 사례 등 다양한 내용들을 링크의 가이드에 따라 직접 실습을 해 보면서 보다 잘 이해하실 수 있습니다.</p>
+<p><strong>주의 사항</strong></p>
+<ul>
+<li>본 목록의 핸즈온 랩 및 데모를 진행하는데는 대부분의 경우 비용이 발생합니다. AWS 요금 또는 파트너 제품의 사용 요금 등 제반 비용에 대해서는 기본적으로는 실습자 부담이기 때문에, 각 핸즈온 랩 가이드에 나와 있는 비용 관련 내용을 숙지하고 실습 여부를 판단해야 합니다.</li>
+<li>특별한 이유가 없는 한, 실습 후에는 반드시 실습 환경을 삭제하여 더이상 과금되지 않도록 각별히 유념하시기 바랍니다.</li>
+</ul>
+<h2 id="aws-workshop"><a href="https://www.workshops.aws/">AWS Workshop</a></h2>
+<p><a href="https://www.workshops.aws/">AWS Workshop</a>은 AWS에서 제공하는 핸즈온 워크샵들을 모아 놓은 웹 싸이트 입니다. 보안 관련 주제도 포함되어 있으며, 계시된 레벨과 소요시간, 관련 서비스 정보를 참조하여 실습을 진행하실 수 있습니다.</p>
+<p><img alt="Screenshot" src="../img/aws_workshop.png" /></p>
+<ul>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/f21a1ec6-e7bc-482c-a6fc-9f53d28f8ac7/en-US">Getting Started with Security on AWS</a></li>
+<li><a href="https://workshops.aws/card/Analyzer">Integrating IAM Access Analyzer into a CI/CD Pipeline</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://data-perimeter.workshop.aws/">Data Perimeter Workshop</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://networkfirewall.workshop.aws/">AWS Network Firewall Workshop</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/dc413216-deab-4371-9e4a-879a4f14233d/ko-KR/">제로 트러스트 에피소드 1 - The Phantom Service Perimeter</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://amazon-es-vpc-flowlogs.workshop.aws/">VPC Flowlogs Analysis using Amazon Elasticsearch Service</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://networking.workshop.aws/">AWS Networking Workshop</a> <em>- Level:300, 8Hr</em></li>
+<li><a href="https://kms-encryption-at-rest.workshop.aws/">Scaling your encryption at rest capabilities with AWS KMS</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://mng.workshop.aws/">Management_Governance_Immersion_Day</a> <em>- Level:100~200, Modular</em></li>
+<li><a href="https://reinforce-tdr254.workshop.aws/">re:Inforce TDR254 - Building an AWS incident response plan using Jupyter notebooks</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://quicksight-security-dashboard.workshop.aws/">Building Prowler into a QuickSight powered AWS security dashboard</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://encryption-ws.workshop.aws/">AWS Encryption Tutorial</a> <em>- Level:200, 5Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/43742d64-6a5e-45ea-9339-cbb3fb26944e/">AWS Incident Response Playbooks Workshop</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://data-discovery-and-classification.workshop.aws/">Data Discovery and Classification with Amazon Macie</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://hands-on-network-firewall.workshop.aws/">Hands on Network Firewall Workshop</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://security-log-analysis-platform.workshop.aws/">SIEM on Amazon Elasticsearch Service Workshop</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://cloudtrail-with-cloudwatch.workshop.aws/">AWS CloudTrail Monitoring with Amazon CloudWatch</a> <em>- Level:300, 3Hr</em></li>
+<li><a href="https://ddos-protection-best-practices.workshop.aws/">Implementing DDoS Resiliency</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://cloudendure-dr.workshop.aws/">CloudEndure Disaster Recovery Workshop</a> <em>- Level: 200, 6Hr</em></li>
+<li><a href="https://risk-compliance.workshop.aws/">Risk and Compliance Immersion Day</a> <em>- Level:100, 2Hr</em></li>
+<li><a href="https://disaster-recovery.workshop.aws/">Disaster Recovery on AWS</a> <em>- Level: 300, 8Hr</em></li>
+<li><a href="https://ad-immersionday.workshop.aws/">Active Directory on AWS Immersion Day</a> <em>- Level:200, 4Hr</em></li>
+<li><a href="https://devsecops.workshop.aws/">DevSecOps on AWS</a> <em>- Level:400, 3Hr</em></li>
+<li><a href="https://introduction-to-waf.workshop.aws/">Introduction to WAF</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://introduction-firewall-manager.workshop.aws/">Firewall Manager service - WAF policy</a> <em>- L:evel:200, 2Hr</em></li>
+<li><a href="https://s3-presigned-url.workshop.aws/">Studying S3 presigned URL feature</a> <em>- Level:400, 1Hr</em></li>
+<li><a href="https://security-hub-workshop.awssecworkshops.com/">Integration, Prioritization, and Response with AWS Security Hub</a> <em>- Level:300, 3Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/bc60f0b2-991f-4df9-933c-234a67e75179/en-US">AWS Identity: Using Amazon Cognito for serverless consumer apps</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://scaling-threat-detection.awssecworkshops.com/">Scaling threat detection and response on AWS</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://validating-network-reachability.awssecworkshops.com/">Finding and addressing Network Misconfigurations on AWS</a> <em>- LevelL300, 2Hr</em></li>
+<li><a href="https://idm-infrastructure.awssecworkshops.com/">Infrastructure Identity on AWS</a> <em>- Level: 300, 2Hr</em></li>
+<li><a href="https://devops.awssecworkshops.com/">DevSecOps - Integrating security into your pipeline</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://vul-mgmt-program.awssecworkshops.com/">Build a Vulnerability Management Program Using AWS for AWS</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://identity-round-robin.awssecworkshops.com/serverless/">Serverless Identity</a> <em>- Level: 300, 2Hr</em></li>
+<li><a href="https://identity-round-robin.awssecworkshops.com/permission-boundaries-advanced/">Permissions boundaries: how to delegate permissions on AWS</a> <em>- Level:400, 2Hr</em></li>
+<li><a href="https://identity-round-robin.awssecworkshops.com/delegation/">Access Delegation</a> <em>- Level:200, 2Hr</em></li>
+<li><a href="https://data-protection.awssecworkshops.com/">Data Protection</a> <em>- Level: 300, 2Hr</em></li>
+<li><a href="https://container-devsecops.awssecworkshops.com/">Integrating security into your container pipeline</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://hands-on-guardduty.awssecworkshops.com/">Getting Hands on with Amazon GuardDuty</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/6484b52f-39fa-45cf-937c-95af1ea29b6b/">Ransomware prevention strategies in Amazon S3</a> <em>- Level:200, 1Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/3a8d4ddf-66c5-4d26-ae6f-6292a517f46c/en-US">Secure Hybrid Access to S3 using VPC Endpoints</a> <em>- Level: 300, 1Hr</em></li>
+<li><a href="https://www.vpcendpointworkshop.com/">Amazon VPC Endpoint Workshop</a> <em>- Level:300, 3Hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/497b4908-169f-4e6f-b80d-ef10be3038d3/en-US">Store, retrieve and manage sensitive credentials in AWS Secrets Manager</a> <em>- Level:300, 2Hr</em></li>
+<li><a href="https://github.com/aws-samples/data-protection/tree/master/usecase-9">ACM Private Certificate Authority (ACM Private CA) Workshop</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/d3f60827-89f2-46a8-9be7-6e7185bd7665/en-US">Multi-Account Security Governance Workshop</a> <em>- Level:200, 3Hrs</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/65e30a39-2f37-4e82-ba04-3ad41328fb5b/en-US/">Workshop: Building remediation workflows to simplify compliance</a> <em>- Level:400, 2Hrs</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/fff8e490-f397-43d2-ae26-737a6dc4ac68/en-US">Integrating AWS IAM Access Analyzer in a CI/CD Pipeline</a> <em>- Level: 300-400, 3Hrs</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/adccbda9-ceaf-47a8-843b-cf231281b635/en-US/">Security Hub Workshop</a> <em>- Level:200, 3 Hrs</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/863fe895-a98e-4a9f-a222-05f7f0e321a2/en-US/">Vulnerability Management with Amazon Inspector</a> <em>- Level:200, 2 Hrs</em></li>
+<li><a href="https://catalog.workshops.aws/firewall-manager/en-US">AWS Firewall Manager Workshop - Audit and Manage Firewall rules</a> <em>- Level:200, 3:30</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/dd23d392-bea4-483c-aefd-f62ed73f936d/en-US">AWS IAM Workshop(한글)</a> <em>- Level:200, 3hr</em></li>
+<li><a href="https://catalog.workshops.aws/guardduty/en-US">Amazon GuardDuty Workshop</a> <em>- Level:200, 3hr</em></li>
+<li><a href="https://catalog.workshops.aws/visualizing-securityhub-findings/en-US">Visualize Security Hub Findings using Analytics Tools</a> <em>- Level:300,3hr</em></li>
+<li><a href="https://catalog.workshops.aws/threatmodel/en-US">Threat modeling the right way for builders</a> <em>- Level:200, 3hr</em></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/6d057868-fd57-4029-a708-90f8b7f00388/ko-KR">AWS Config 워크샵</a> <em>- Level:200</em></li>
+</ul>
+<h2 id="aws-well-architected-security-labs"><a href="https://www.wellarchitectedlabs.com/Security/README.html">AWS Well Architected Security Labs</a></h2>
+<ul>
+<li><a href="https://www.wellarchitectedlabs.com/Security/100_AWS_Account_and_Root_User/README.html">Level 100: AWS Account and Root User</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/100_Basic_Identity_and_Access_Management_User_Group_Role/README.html">Level 100: Basic Identity and Access Management User, Group, Role</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/100_CloudFront_with_S3_Bucket_Origin/README.html">Level 100: CloudFront with S3 Bucket Origin</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/100_Enable_Security_Hub/README.html">Level 100: Enable Security Hub</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_Deployment_of_Detective_Controls/README.html">Level 200: Automated Deployment of Detective Controls</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_Deployment_of_EC2_Web_Application/README.html">Level 200: Automated Deployment of EC2 Web Application</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_Deployment_of_IAM_Groups_and_Roles/README.html">Level 200: Automated Deployment of IAM Groups and Roles</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_Deployment_of_VPC/README.html">Level 200: Automated Deployment of VPC</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_Deployment_of_Web_Application_Firewall/README.html">Level 200: Automated Deployment of Web Application Firewall</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Automated_IAM_User_Cleanup/README.html">Level 200: Automated IAM User Cleanup</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Basic_EC2_with_WAF_Protection/README.html">Level 200: Basic EC2 with WAF Protection</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_Certificate_Manager_Request_Public_Certificate/README.html">Level 200: Certificate Manager Request Public Certificate</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/200_CloudFront_with_WAF_Protection/README.html">Level 200: CloudFront with WAF Protection</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/300_IAM_Permission_Boundaries_Delegating_Role_Creation/README.html">Level 300: IAM Permission Boundaries Delegating Role Creation</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/300_IAM_Tag_Based_Access_Control_for_EC2/README.html">Level 300: IAM Tag Based Access Control for EC2</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/300_Incident_Response_Playbook_with_Jupyter-AWS_IAM/README.html">Level 300: Incident Response Playbook with Jupyter - AWS IAM</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/300_Incident_Response_with_AWS_Console_and_CLI/README.html">Level 300: Incident Response with AWS Console and CLI</a></li>
+<li><a href="https://www.wellarchitectedlabs.com/Security/300_Lambda_Cross_Account_IAM_Role_Assumption/README.html">Level 300: Lambda Cross Account IAM Role Assumption</a></li>
+</ul>
+<h2 id="aws">AWS 보안 서비스 관련 핸즈온 랩 및 데모</h2>
+<ul>
+<li><a href="https://awssecworkshops.com/">AWS Security Workshop</a></li>
+<li><a href="https://identity-round-robin.awssecworkshops.com/">Identity Round Robin</a></li>
+<li><a href="http://federationworkshopreinvent2016.s3-website-us-east-1.amazonaws.com/">SAML 2.0 기반의 Federation에 대한 워크샵</a> <em>– SAML 2.0을 지원하는 Shibboleth 3.x(with OpenLDAP)이나 MS ADFS기반의 IDP 환경을 AWS 콘솔과 Federtion하는 방법을 정리한 싸이트(AWS Single Sign-On을 이용하지 않는 방법)</em></li>
+<li><a href="https://web-identity-federation-playground.s3.amazonaws.com/index.html">Web Identity Federation Playground</a> <em>- 웹 자격 증명 연동이 어떤 방식으로 작동하는지에 대한 이해를 돕는 시뮬레이션 싸이트</em></li>
+<li><a href="https://github.com/aws-samples/data-protection">AWS Data Protection Workshops</a></li>
+<li><a href="http://busy-engineers-guide.reinvent-workshop.com/">A Busy Engineer’s Guide to the AWS Encryption SDK</a></li>
+<li><a href="https://github.com/aws-samples/aws-kms-workshop">AWS KMS Workshop</a></li>
+<li><a href="https://controltower.aws-management.tools/">Control Tower Immersion Day</a></li>
+<li><a href="https://github.com/aws-samples/aws-secretsmgr-workshop">AWS Secrets Manager Workshop</a></li>
+<li><a href="https://github.com/aws-samples/modernization-unicorn-store/tree/v1.0">modernization-unicorn-store</a> <em>- 컨테이너 환경의 .NET 앱들과 Secret Manager 연계</em></li>
+<li><a href="https://workshop.aws-management.tools/config/">Config HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/cloudwatch/">CloudWatch HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/cloudtrail/">CloudTrail HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/servicecatalog/">Service Catalog HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/licensemanager/">License Manager HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/ssm/">System Manager HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/ssm/use-case-labs/configurationcompliance/">System Manager Compliance HOL</a></li>
+<li><a href="https://waf.solution.builders/00-introduction/">AWS WAF Workshop</a></li>
+<li><a href="https://sessin.github.io/awswafhol/">AWS WAF 공격 및 방어 실습</a></li>
+<li><a href="https://protecting-workloads.awssecworkshops.com/">Workshop - Protecting Workloads on AWS from the Instance to the Edge</a></li>
+<li><a href="https://www.workshops.aws/categories/Security">AWS Workshops - Security</a></li>
+<li><a href="https://www.workshops.aws/categories/IAM">AWS Workshops - IAM</a></li>
+<li><a href="https://www.workshops.aws/categories/Networking">AWS Workshops - Networking</a></li>
+<li><a href="https://www.workshops.aws/categories/Identity">AWS Workshops - Identity</a></li>
+<li><a href="https://www.workshops.aws/categories/Data%20Protection">AWS Workshops - Data Protection</a></li>
+<li><a href="https://www.workshops.aws/categories/Active%20Directory">AWS Workshops - Active Directory</a></li>
+<li><a href="https://whchoi98.gitbook.io/aws-iam/">AWS IAM Hands On Lab(한글)</a></li>
+<li><a href="http://gslim-public-workshops.s3-website.ap-northeast-2.amazonaws.com/incidentresponseworkshop/">AWS 환경에서의 침해사고 대응 워크샵</a></li>
+<li><a href="https://www.immersionday.com/landing-zone/">Landing Zone Immersion Day</a></li>
+<li><a href="https://serverless-game-analytics.workshop.aws/en/cognito.html">Cognito authentication</a></li>
+<li><a href="https://serverless-idm.awssecworkshops.com/">Using Amazon Cognito for serverless consumer apps</a></li>
+<li><a href="https://nitro-enclaves.workshop.aws/en/">AWS Nitro Enclaves Workshop</a></li>
+<li><a href="https://security-log-analysis-platform.workshop.aws/en/">SIEM on Amazon Elasticsearch Service Workshop</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/c6f34556-1d8d-4123-9805-c352db828e16/ko-KR">AWS CLIENT VPN BASIC WORKSHOP (Korean)</a></li>
+</ul>
+<h2 id="aws_1">AWS 서비스별 보안 기능 관련 핸즈온 랩 및 데모</h2>
+<ul>
+<li><a href="https://workshops.devax.academy/security-for-developers/">DevAx::academy::Security for Developers</a></li>
+<li><a href="https://deh4m73phis7u.cloudfront.net/log-analytics/mainlab/">Log Analytic workshop</a> <em>- Elasticsearch Service</em></li>
+<li><a href="https://network.exampleloadbalancer.com/nlbtls_demo.html">NLB TLS 지원 데모</a> <em>- 외부 사이트</em></li>
+<li><a href="https://www.exampleloadbalancer.com/auth_demo.html">Authentication on Application Load Balancer</a></li>
+<li><a href="https://github.com/aws-samples/con317-reinvent19">re:Invent 2019 - CON317 - Securing your EKS Cluster</a></li>
+<li><a href="https://devsecops.modernize.awsworkshop.io/">AWS Modernization DevSecOps Workshop</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/freertos/latest/userguide/secure-sockets-demo.html">보안 소켓 에코 클라이언트 데모</a></li>
+<li><a href="https://workshop.aws-management.tools/cloudformation/">CloudFormation HOL</a> </li>
+<li><a href="https://cfn101.solution.builders/">CloudFormation Workshop</a></li>
+<li><a href="http://workshop.quickstart.awspartner.com/">Learn AWS CloudFormation best practices and how to build a Quick Start, the right way!</a></li>
+<li><a href="https://workshop.aws-management.tools/servicecatalog/">Service Catalog HOL</a></li>
+<li><a href="https://service-catalog-tools-workshop.com/">AWS Service Catalog Tools Intro Workshop</a></li>
+<li><a href="https://workshop.aws-management.tools/operations/">Operations HOL</a></li>
+<li><a href="https://workshop.aws-management.tools/">Management Tools Immersion Day</a></li>
+<li><a href="https://www.immersionday.com/edge-services/#">Edge Services Immersion Day</a></li>
+<li><a href="https://cdkworkshop.com/">CDK Workshop</a></li>
+<li><a href="https://github.com/aws-samples/amazon-s3-security-settings-and-controls">Amazon S3 Security Settings and Controls</a></li>
+<li><a href="https://networking.aworkshop.io/">Networking Workshop</a></li>
+<li><a href="https://www.immersionday.com/aws-networking-immersion-day/">AWS Networking Immersion Day</a></li>
+<li><a href="https://appsync-immersionday.workshop.aws/lab2.html">Appsync Workshop - Security</a></li>
+<li><a href="https://net-immersionday.workshop.aws/5-how-to-secure-my-application.html">How to secure my .NET application on AWS</a></li>
+<li><a href="https://amazon-es-vpc-flowlogs.workshop.aws/en/">VPC Flow logs Analysis using Amazon Elasticsearch Service</a></li>
+<li><a href="https://amazonmsk-labs.workshop.aws/en/securityencryption.html">Security and Encryption with Amazon MSK</a></li>
+<li><a href="https://rdsmd.workshop.aws/en/workshop/ex9mariadbaudit.html">RDS MariaDB Advanced Auditing</a></li>
+<li><a href="https://rdsmy.workshop.aws/en/lab10.html">RDS MySQL Authenticating using IAM</a></li>
+<li><a href="https://rdspg.workshop.aws/lab8-dbatasks.html">RDS Postgre IAM Database Authentication</a></li>
+<li><a href="https://rdssms.workshop.aws/lab6.html">Securing RDS SQL Server</a></li>
+<li><a href="https://rdsora.workshop.aws/lab11.html">how to set up Kerberos Authentication for Oracle RDS instances</a></li>
+<li><a href="https://redshift-immersion.workshop.aws/lab9.html">Use SAML 2.0 for SSO with Redshift</a></li>
+<li><a href="https://storage-on-aws.workshop.aws/s3-security-best-practices-lab.html">S3 Security Best Practices</a></li>
+<li><a href="https://github.com/aws-samples/aws-serverless-workshops/tree/master/Auth">Serverless Identity Management, Authentication, and Authorization Workshop</a></li>
+<li><a href="https://github.com/aws-samples/aws-serverless-security-workshop/blob/master/README.md#serverless-security-workshop">Serverless Security Workshop</a></li>
+<li><a href="https://amplify-ios-workshop.go-aws.com/">Build an iOS App using a cloud-based backend</a> <em>- Amplify를 통해 iOS 앱의 인증/인가를 구현</em></li>
+<li><a href="https://sagemaker-workshop.com/security_for_sysops.html">SageMaker Workshop - Building Secure Environments</a></li>
+<li><a href="https://sagemaker-workshop.com/security_for_users.html">SageMaker Workshop - Using Secure Environments</a></li>
+<li><a href="https://github.com/aws-samples/amazon-sagemaker-studio-secure-data-science-workshop">sagemaker-studio-secure-data-science-workshop</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/928b27c0-45d7-4463-8263-23e0343141de/en-US#workshop-overview">Securing deployment of third-party ML models</a></li>
+<li><a href="https://www.eksworkshop.com/intermediate/300_cis_eks_benchmark/">CIS EKS Benchmark assessment using kube-bench</a></li>
+<li><a href="http://aws-security.kr/hands_on_labs/">Building an AWS incident response runbook using Jupyter notebooks</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/65ae1218-0c6b-444a-88bd-02aad3ac8636/en-US">S3 Object Lambda redaction Workshop</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/1d50f8ef-5030-42c9-9488-a2187472c9e6/en-US">AWS IoT Zero Trust workshop</a></li>
+</ul>
+<h2 id="_1">파트너 보안 제품들과 연동하는 핸즈온 랩 및 데모</h2>
+<ul>
+<li><a href="https://snyk.awsworkshop.io/">DevSecOps with Snyk</a> <em>- ECS 및 Code 시리즈 환경에 대한 보안 테스트 단계를 Synk로 구성한 워크샵</em></li>
+<li><a href="https://contrastsecurity.modernize.awsworkshop.io/">DevSecOps with Contrast Security</a> <em>- ECS 및 Code 시리즈 환경에 대한 보안 테스트 단계를 Contrast Security로 구성한 워크샵</em></li>
+<li><a href="https://github.com/fsi-security/webgw">오픈소스를 이용한 AWS Management Console 어카운트ID 접근제어</a></li>
+<li><a href="http://aws-security.kr/hands_on_labs/">Building Prowler into a QuickSight powered AWS Security Dashboard</a></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

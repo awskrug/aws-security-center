@@ -1,0 +1,2013 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../data_security/">
+      
+      
+        <link rel="next" href="../incident_response/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>거버넌스 & 탐지통제 - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#detective-control" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              거버넌스 & 탐지통제
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CloudTrail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CloudWatch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon GuardDuty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Inspector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-security-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-device-defender" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Defender
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-flow-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC Flow Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-advisor-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trusted Advisor - Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 서비스 별 로그와 감사 관련
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Well-Architected Tool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-lenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Well-Architected Lenses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      거버넌스 및 탐지 통제와 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CloudTrail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CloudWatch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon GuardDuty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Inspector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-security-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-device-defender" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Defender
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-flow-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC Flow Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-advisor-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trusted Advisor - Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 서비스 별 로그와 감사 관련
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Well-Architected Tool
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-lenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Well-Architected Lenses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      거버넌스 및 탐지 통제와 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="detective-control">거버넌스 및 탐지통제(Detective Control)</h1>
+<p>비지니스에 영향을 미치기 전에 고객 환경의 보안 이슈들을 식별하고, 전반적인 보안 수준을 향상시키고, 보안 위험도를 감소시키기 위한 기능과 관련된 영역입니다. 이 영역에 해당하는 AWS 보안 서비스들에는 다음과 같은 것들이 있습니다.</p>
+<h2 id="aws-cloudtrail"><a href="https://aws.amazon.com/ko/cloudtrail/">AWS CloudTrail</a></h2>
+<p>AWS 어카운트의 거버넌스, 컴플라이언스, 운영 및 리스크 감사 기능을 제공합니다. AWS CloudTrail을 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/WhatIsCloudTrail-Security.html">AWS CloudTrail의 보안</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/automatically-re-enable-aws-cloudtrail-by-using-a-custom-remediation-rule-in-aws-config.html">Automatically re-enable AWS CloudTrail by using a custom remediation rule in AWS Config</a></li>
+<li>AWS Solutions - <a href="https://aws.amazon.com/ko/solutions/centralized-logging/">Centralized Logging</a></li>
+<li>GIT - <a href="https://github.com/aws/aws-cloudtrail-processing-library">AWS CloudTrail Processing Library</a></li>
+<li>GIT - <a href="https://github.com/cloud-automaton/automaton/blob/master/aws/events/EnableAWSCloudTrail.py">EnableAWSCloudTrail</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/maximizing-features-and-functionality-in-aws-cloudtrail/">Maximizing features and functionality in AWS CloudTrail</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/streamline-aws-cloudtrail-log-visualization-using-aws-glue-and-amazon-quicksight/">Visualize AWS Cloudtrail Logs Using AWS Glue and Amazon QuickSight</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/visualizing-aws-cloudtrail-events-using-kibana/">Visualizing AWS CloudTrail Events using Kibana</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/optimize-aws-cloudtrail-costs-using-advanced-event-selectors/">How to optimize AWS CloudTrail costs by using advanced event selectors</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/">Analyze Security, Compliance, and Operational Activity Using AWS CloudTrail and Amazon Athena</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/restrict-access-by-member-account-to-a-centralized-cloudtrail-logging-bucket/">Restrict Access by member account to a centralized CloudTrail logging bucket</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/using-cloudtrail-to-identify-unexpected-behaviors-in-individual-workloads/">Using CloudTrail to identify unexpected behaviors in individual workloads</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/announcing-aws-cloudtrail-lake-a-managed-audit-and-security-lake/">Announcing AWS CloudTrail Lake – a managed audit and security Lake</a></li>
+</ul>
+<h2 id="aws-config"><a href="https://aws.amazon.com/ko/config/">AWS Config</a></h2>
+<p>AWS 리소스의 구성을 기록하고 점검하는 기능을 제공합니다. 컴플라이언스 감사, 보안 분석, 리소스 변경 이력 추적 및 조사 기능을 제공합니다. AWS Config를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/security.html">AWS Config의 보안</a></li>
+<li>동영상 [AWS Summit Seoul 2016] - <a href="https://www.youtube.com/watch?v=lRGJZThgk-Q">AWS 고급 보안 서비스를 통한 민첩한 보안 운영 전략</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=CyyNlyAHs0A&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=15">Remediate Non-Compliance Using AWS Config Rules and Custom SSM Document</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=X_fznJtSyV8&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=2">Enforce Compliance with AWS Config</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=PD9S5xGC16g&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=10">Remediate Non-Compliance Using AWS Config Rules, AWS CloudWatch Events, &amp; AWS Lambda Functions</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-rules">Config Rules Repository</a> <em>- Sample Config Rules 저장소</em></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-rdk">Config Rule Development Kit</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-engine-for-compliance-as-code">Engine for Compliance-as-code</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-serverless-config-rules-workshop">Making Things Right With AWS Lambda and AWS Config Rules</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-resource-schema">AWS Config Resource Schema</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-rdklib">RDKlib</a> <em>- 람다 Layer에서 동작하는 Config Rule 배포 관리용 파이선</em></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-resource-schema">aws-config-resource-schema</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-config-rdklib/tree/master/rdklib_addon_to_rdk_workshop">RDKlib Add-On to RDK Workshop</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-management-and-governance-samples/tree/master/AWSConfig/AWS-Config-Visualization">Config-Visualization at master</a></li>
+<li>Support - <a href="https://aws.amazon.com/premiumsupport/knowledge-center/retrieve-aws-config-items-per-month/">How can I understand AWS Config billing by retrieving the number of configuration items recorded per month?</a></li>
+<li>Support - <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/config-resource-non-compliant/">AWS Config를 사용하여 규정 미준수 AWS 리소스에 대한 알림 수신</a></li>
+<li>Support - <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/add-config-remediation-actions/">AWS Config 조직 규칙에 대한 수정 작업 추가</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-develop-custom-aws-config-rules-using-the-rule-development-kit/">How to develop custom AWS Config rules using the Rule Development Kit</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-config-auto-remediation-s3-compliance/">Amazon S3 bucket compliance using AWS Config Auto Remediation feature</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/how-to-automate-cloud-governance-to-achieve-safety-at-speed/">How to Automate Cloud Governance to Achieve Safety at Speed</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/auto-populate-instance-details-by-integrating-aws-config-with-your-servicenow-cmdb/">Auto-populate instance details by integrating AWS Config with your ServiceNow CMDB</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-config-rdk-multi-account-and-multi-region-deployment/">AWS Config RDK: Multi-account and multi-Region deployment</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-config-best-practices/">AWS Config best practices</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/ingest-aws-config-data-into-splunk-with-ease/">Ingest AWS Config data into Splunk with ease</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-query-your-aws-resource-configuration-states-using-aws-config-and-amazon-athena/">How to query your AWS resource configuration states using AWS Config and Amazon Athena</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-monitor-for-and-respond-to-amazon-s3-buckets-allowing-public-access/">How to Use AWS Config to Monitor for and Respond to Amazon S3 Buckets Allowing Public Access</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/preventing-blacklisted-applications-with-aws-systems-manager-and-aws-config/">Preventing blacklisted applications with AWS Systems Manager and AWS Config</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-develop-custom-aws-config-rules-using-the-rule-development-kit/">How to develop custom AWS Config rules using the Rule Development Kit</a></li>
+<li>Blog - <a href="https://aws-blogs-prod.amazon.com/mt/introducing-aws-config-conformance-packs/">Introducing AWS Config Conformance Packs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/integrating-third-party-solutions-to-aws-config-rule-evaluations/">Integrating Third-Party Solutions to AWS Config Rule Evaluations</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/managing-aws-organizations-accounts-using-aws-config-and-aws-cloudformation-stacksets/">Managing AWS Organizations accounts using AWS Config and AWS CloudFormation StackSets</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/deploy-aws-config-rules-and-conformance-packs-using-a-delegated-admin/">Deploy AWS Config Rules and Conformance Packs using a delegated admin</a></li>
+<li>Blog - <a href="https://aws-blogs-prod.amazon.com/mt/managing-aged-access-keys-through-aws-config-remediations/">Managing aged access keys through AWS Config remediations</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-determine-compliance-of-aws-kms-key-policies-to-your-specifications/">How to use AWS Config to determine compliance of AWS KMS key policies to your specifications</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/identifying-resources-most-configuration-changes-aws-config/">Identifying resources with the most configuration changes using AWS Config</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/aws-config-rule-development-kit-library-build-and-operate-rules-at-scale/">AWS Config Rule Development Kit library: Build and operate rules at scale</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/using-aws-systems-manager-opscenter-and-aws-config-for-compliance-monitoring/">Using AWS Systems Manager OpsCenter and AWS Config for compliance monitoring</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/aws-organizations-aws-config-and-terraform/">AWS Organizations, AWS Config, and Terraform</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/using-aws-config-security-analysis-resource-administration/">Using AWS Config for security analysis and resource administration</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/architecture/building-a-self-service-secure-continually-compliant-environment-on-aws/">Building a Self-Service, Secure, &amp; Continually Compliant Environment on AWS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/best-practices-for-aws-config-conformance-packs/">Best practices for AWS Config conformance packs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/configuration-history-configuration-snapshot-files-aws-config/">Understanding the differences between configuration history and configuration snapshot files in AWS Config</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-control-tower-detective-guardrails-as-an-aws-config-conformance-pack/">AWS Control Tower Detective Guardrails as an AWS Config Conformance Pack</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-auto-remediate-internet-accessible-ports-with-aws-config-and-aws-system-manager/">How to auto-remediate internet accessible ports with AWS Config and AWS System Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/using-aws-config-custom-resources-to-track-any-resource-on-aws/">Using AWS Config custom resources to track any resource on AWS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/org-aggregator-delegated-admin/">Set up an organization-wide aggregator in AWS Config using a delegated administrator account</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/visualizing-aws-config-data-using-amazon-athena-and-amazon-quicksight/">Visualizing AWS Config data using Amazon Athena and Amazon QuickSight</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-2-transform-aws-config-conformance-packs-into-aws-audit-manager-assessments/">Integrate across the Three Lines Model (Part 2): Transform AWS Config conformance packs into AWS Audit Manager assessments</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-query-your-aws-resource-configuration-states-using-aws-config-and-amazon-athena/">How to query your AWS resource configuration states using AWS Config and Amazon Athena</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/deploying-conformance-packs-across-an-organization-with-automatic-remediation/">Deploy Conformance Packs across an Organization with Automatic Remediation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/manage-custom-aws-config-rules-with-remediations-using-conformance-packs/?nc1=b_rp">Manage custom AWS Config rules with remediations using conformance packs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/using-opa-to-create-aws-config-rules/">Using OPA to create AWS Config rules</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/implement-aws-config-rule-remediation-with-systems-manager-change-manager/">Implement AWS Config rule remediation with Systems Manager Change Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/implementing-a-cross-account-and-cross-region-aws-config-status-dashboard/">Implementing a cross-account and cross-Region AWS Config status dashboard</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/build-an-aws-config-custom-rule-to-optimize-amazon-ebs-volume-types/">Build an AWS Config Custom Rule to Optimize Amazon EBS Volume Types</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/identifying-resources-most-configuration-changes-aws-config/">Identifying resources with the most configuration changes using AWS Config</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/how-to-deploy-aws-config-conformance-packs-using-terraform/">How to Deploy AWS Config Conformance Packs Using Terraform</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/architecture/find-public-ips-of-resources-use-aws-config-for-vulnerability-assessment/">Find Public IPs of Resources – Use AWS Config for Vulnerability Assessment</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/automate-aws-config-data-visualization-with-aws-systems-manager/">Automate AWS Config data visualization with AWS Systems Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/tech/internet-facing-load-balancer-%EC%83%9D%EC%84%B1-%ED%83%90%EC%A7%80-%EB%B0%8F-%EC%A0%9C%EA%B1%B0/">Internet Facing Load Balancer 생성 탐지 및 제거</a></li>
+</ul>
+<h2 id="amazon-cloudwatch"><a href="https://aws.amazon.com/ko/cloudwatch/">Amazon CloudWatch</a></h2>
+<p>AWS 리소스와 AWS상의 고객 애플리케이션들을 모니터링하기 위해 메트릭 수집, 로그 파일 모니터링, 경보 설정, 변경에 대한 자동화된 대응 등의 기능을 제공합니다. Amazon CloudWatch를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/security.html">Amazon CloudWatch의 보안</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Amazon CloudWatch Events의 보안</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/logs/security.html">Amazon CloudWatch Logs의 보안</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=-rQku_AeN_Y&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=4">Monitor Resource Changes with Amazon CloudWatch Events</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=vAnIhIwE5hY&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=1">Collect Metrics and Logs from Amazon EC2 Instances with CloudWatch Agent</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=LwM_oETkLAc&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=25">Monitor Performance of Amazon ECS Applications Using CloudWatch Container Insights</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=2s2xcwm8QrM&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=7">Analyze Log Data with CloudWatch Log Insights</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/amazon-cloudwatch-log-centralizer">Amazon CloudWatch Log Centralizer</a></li>
+<li>GIT - <a href="https://github.com/awslabs/cwe-monitor-secgrp">cwe-monitor-secgrp</a></li>
+<li>GIT - <a href="https://github.com/bjtox/CloudWatch-Metrics-to-s3">Export-CloudWatch-Metrics</a></li>
+<li>GIT - <a href="https://github.com/petezybrick/awscwxls">Generic AWS CloudWatch to Spreadsheet Exporter</a></li>
+<li>GIT - <a href="https://github.com/amazon-archives/cloudwatch-logs-subscription-consumer">One-Click Setup: CloudWatch Logs + Elasticsearch + Kibana</a></li>
+<li>GIT - <a href="https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit">Fluent Bit Plugin for CloudWatch Logs</a></li>
+<li>GIT - <a href="https://aws.amazon.com/ko/blogs/security/how-to-automate-forensic-disk-collection-in-aws/">Athena Cloudwatch Connector</a></li>
+<li>Partner - <a href="https://grafana.com/docs/features/datasources/cloudwatch/">Using AWS CloudWatch in Grafana</a></li>
+<li>Blog - <a href="https://aws-preview.aka.amazon.com/ko/blogs/korea/central-logging-in-multi-account-environments/">AWS 멀티 어카운트 환경을 위한 통합 로깅 방법</a> <em>– 멀티 어카운트 상에서 CloudWatch Logs에서 발생하는 로그 스트림들을 로깅 어카운트의 지정된 S3버킷으로 취합하고 Athena로 질의하는 환경을 구성하는 블로그</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/infrastructure-and-automation/logging-windows-amazon-ec2-userdata-activity-in-amazon-cloudwatch/">Logging Windows Amazon EC2 UserData activity in Amazon CloudWatch</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/create-a-metric-math-alarm-using-amazon-cloudwatch/">Create a metric math alarm using Amazon CloudWatch</a> <em>- 산술식 기반 메트릭 알람 설정 방법 설명</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/simplifying-apache-server-logs-with-amazon-cloudwatch-logs-insights/">Simplifying Apache server logs with Amazon CloudWatch Logs Insights</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/understanding-aws-lambda-behavior-using-amazon-cloudwatch-logs-insights/">Understanding AWS Lambda behavior using Amazon CloudWatch Logs Insights</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/architecture/stream-amazon-cloudwatch-logs-to-a-centralized-account-for-audit-and-analysis/">Stream Amazon CloudWatch Logs to a Centralized Account for Audit and Analysis</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/streaming-aws-systems-manager-run-command-output-to-amazon-cloudwatch-logs/">Streaming AWS Systems Manager Run Command output to Amazon CloudWatch Logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/monitor-your-private-endpoints-using-cloudwatch-synthetics/">Monitor your private internal endpoints 24×7 using CloudWatch Synthetics</a></li>
+<li>Blog - <a href="">Gain visibility into your Kubernetes spend with CloudZero and Amazon CloudWatch Container Insights</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/sending-cloudfront-standard-logs-to-cloudwatch-logs-for-analysis/">Sending CloudFront standard logs to CloudWatch Logs for analysis</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-validate-authentication-using-amazon-cloudwatch-synthetics-part-2/">How to validate authentication using Amazon CloudWatch Synthetics – Part 2</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/share-your-amazon-cloudwatch-dashboards-with-anyone-using-aws-single-sign-on/">Share your Amazon CloudWatch Dashboards with anyone using AWS Single Sign-On</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/how-to-isolate-signed-in-users-from-guest-users-within-amazon-cloudwatch-rum/">How to isolate signed-in users from guest users within Amazon CloudWatch RUM</a></li>
+</ul>
+<h2 id="amazon-guardduty"><a href="https://aws.amazon.com/ko/guardduty/">Amazon GuardDuty</a></h2>
+<p>AWS 어카운트와 워크로드를 보호하기 위한 지능화된 위협 탐지 및 상시 모니터링 기능을 제공합니다. Amazon GuardDuty를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/guardduty/latest/ug/security.html">Amazon GuardDuty 보안</a></li>
+<li>Support - <a href="https://aws.amazon.com/premiumsupport/knowledge-center/guardduty-cloudwatch-sns-rule/">How can I configure a CloudWatch events rule for GuardDuty to send custom SNS notifications if specific AWS service event types trigger?</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/amazon-guardduty-multiaccount-scripts">amazon-guardduty-multiaccount-scripts</a> <em>– CloudFormation Stackset 기능을 이용하여 멀티어카운트 및 멀티 리전 별로 GuardDuty 설정을 쉽게 해 주는 템플릿</em></li>
+<li>GIT - <a href="https://github.com/awslabs/amazon-guardduty-tester">Amazon GuardDuty Tester</a> <em>– 포트스캐닝, SSH Brute Force, RDP Brute Force, CrytoCurrency Mining Activity, DNS Exfiltration 등 5개의 테스팅을 수행하는 템플릿</em></li>
+<li>GIT - <a href="https://github.com/ansorren/GDPatrol">GDPatrol</a> <em>- GuardDuty 탐지건에 대해 심각도 기반 자동 대응</em></li>
+<li>GIT - <a href="https://github.com/aws-samples/amazon-guardduty-to-slack">amazon-guardduty-to-slack</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/amazon-guardduty-waf-acl">AWS GD2ACL</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/amazon-guardduty-threat-feed">Amazon GuardDuty Threat Feed</a></li>
+<li>GIT - <a href="https://github.com/amrandazz/attack-guardduty-navigator">Mitre ATT&amp;CK® Mappings for Amazon GuardDuty</a></li>
+<li>동영상 [AWS Cloud 2018] - <a href="https://www.youtube.com/watch?v=ZyOAHiia93Q">인공지능 보안 위협 감지 서비스 Amazon GuardDuty를 포함한 AWS 보안 신규 기능 업데이트</a></li>
+<li>외부 백서 - <a href="https://d1.awsstatic.com/certifications/foregenix_amazon_guardduty_security_review_07-2020.pdf">FOREGENIX - Amazon GuardDuty Security Review</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/database/monitoring-your-security-with-guardduty-in-real-time-with-amazon-elasticsearch-service/">Monitoring your security with GuardDuty in real time with Amazon Elasticsearch Service</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-use-amazon-alexa-to-get-amazon-guardduty-statistics-and-findings/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+AWSSecurity+%28AWS+Security+Blog%29">How to Use Amazon Alexa to Get Amazon GuardDuty Statistics and Findings</a> <em>– Alexa를 이용하여 GuardDuty의 통계 및 탐지 내역을 조회하는 블로그</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-automate-import-third-party-threat-intelligence-feeds-into-amazon-guardduty/">How to automate the import of third-party threat intelligence feeds into Amazon GuardDuty</a> <em>- 파트너 제공 위협IP 목록을 주기적으로 업데이트하는 방법에 대해 안내(샘플 : FireEye iSIGHT Threat Intelligence)</em> </li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-amazon-guardduty-and-aws-web-application-firewall-to-automatically-block-suspicious-hosts/">How to use Amazon GuardDuty and AWS Web Application Firewall to automatically block suspicious hosts</a> <em>- GuardDuty에서 탐지된 악성 IP들을 WAF 차단 규칙에 자동으로 반영하는 방법을 안내</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-visualize-amazon-guardduty-findings-serverless-edition/">How to visualize Amazon GuardDuty findings: serverless edition</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/visualizing-amazon-guardduty-findings/">Visualizing Amazon GuardDuty findings</a> <em>- GuardDuty의 탐지내역을 Kibana 기반 대시보드에 가시화해 주는 CloudFormation 템플릿을 소개하는 블로그</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/new-third-party-test-compares-amazon-guardduty-to-network-intrusion-detection-systems/">New third-party test compares Amazon GuardDuty to network intrusion detection systems</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-security-operation-centers-can-use-amazon-guardduty-to-detect-malicious-behavior/">How Security Operation Centers can use Amazon GuardDuty to detect malicious behavior</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/new-using-amazon-guardduty-to-protect-your-s3-buckets/">Using Amazon GuardDuty to Protect Your S3 Buckets</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-you-can-use-amazon-guardduty-to-detect-suspicious-activity-within-your-aws-account/">How you can use Amazon GuardDuty to detect suspicious activity within your AWS account</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/automatically-block-suspicious-traffic-with-aws-network-firewall-and-amazon-guardduty/">Automatically block suspicious traffic with AWS Network Firewall and Amazon GuardDuty</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/automatically-block-suspicious-dns-activity-with-amazon-guardduty-and-route-53-resolver-dns-firewall/">Automatically block suspicious DNS activity with Amazon GuardDuty and Route 53 Resolver DNS Firewall</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/new-for-amazon-guardduty-malware-detection-for-amazon-ebs-volumes/">New for Amazon GuardDuty – Malware Detection for Amazon EBS Volumes</a></li>
+</ul>
+<h2 id="amazon-inspector"><a href="https://aws.amazon.com/ko/inspector/">Amazon Inspector</a></h2>
+<p>AWS상에서 운영되는 애플리케이션 환경에 대해 보안과 규정 준수 수준을 향상시키기 위한 자동화된 보안 수준 점검 기능을 제공합니다. Amazon Inspector를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/inspector/latest/user/security.html">Security in Amazon Inspector</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/inspector/latest/userguide/security.html">Amazon Inspector 클래식의 보안</a></li>
+<li>GIT - <a href="https://github.com/awslabs/amazon-inspector-auto-remediate">AmazonInspectorAutoRemediation</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/automate-security-scans-for-cross-account-workloads-using-amazon-inspector-and-aws-security-hub.html">Automate security scans for cross-account workloads using Amazon Inspector and AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-remediate-amazon-inspector-security-findings-automatically/">How to remediate Amazon Inspector Security Findings Automatically</a> <em>– Inspector의 발견내역에 따라 SNS 및 Lambda를 이용하여 자동 대응(예: yum update)하는 예제</em></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-simplify-security-assessment-setup-using-ec2-systems-manager-and-amazon-inspector/">How to Simplify Security Assessment Setup Using Amazon EC2 Systems Manager and Amazon Inspector</a> <em>– AWS System Manager를 통해 Inspector를 설치/점검설정을 쉽게 하는 방법</em></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-patch-inspect-and-protect-microsoft-windows-workloads-on-aws-part-1/">How to Patch, Inspect, and Protect Microsoft Windows Workloads on AWS—Part 1</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-patch-inspect-and-protect-microsoft-windows-workloads-on-aws-part-2/">How to Patch, Inspect, and Protect Microsoft Windows Workloads on AWS—Part 2</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-set-up-continuous-golden-ami-vulnerability-assessments-with-amazon-inspector/">How to Set Up Continuous Golden AMI Vulnerability Assessments with Amazon Inspector</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/amazon-inspector-update-assessment-reporting-proxy-support-and-more/">Amazon Inspector Update – Assessment Reporting, Proxy Support, and More</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/amazon-inspector-assess-network-exposure-ec2-instances-aws-network-reachability-assessments/">A simpler way to assess the network exposure of EC2 instances: AWS releases new network reachability assessments in Amazon Inspector</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-visualize-multi-account-amazon-inspector-findings-with-amazon-elasticsearch-service/">How to visualize multi-account Amazon Inspector findings with Amazon Elasticsearch Service</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/sending-amazon-inspector-common-vulnerabilities-and-exposures-findings-to-the-servicenow-secops-module/">Sending Amazon Inspector’s Common Vulnerabilities and Exposures Findings to the ServiceNow SecOps Module</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/aws/improved-automated-vulnerability-management-for-cloud-workloads-with-a-new-amazon-inspector/">Improved, Automated Vulnerability Management for Cloud Workloads with a New Amazon Inspector</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/containers/container-scanning-updates-in-amazon-ecr-private-registries-using-amazon-inspector/">Container scanning updates in Amazon ECR private registries using Amazon Inspector</a></li>
+</ul>
+<h2 id="aws-security-hub"><a href="https://aws.amazon.com/ko/security-hub/">AWS Security Hub</a></h2>
+<p>멀티 어카운트 환경에서 주요 보안 경보 및 규정 준수 상태에 대한 광범위하고 통합적인 뷰를 제공합니다. GuardDuty, Inspector, Macie 같은 AWS 보안 서비스뿐만 아니라 다른 파트너 제품과의 연동도 지원하며 각 서비스들이 탐지한 내역들에 대한 요약 및 통합 대쉬보드를 통해 상시 감사체계를 구축할 수 있도록 해줍니다. Security Hub를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/securityhub/latest/userguide/security.html">AWS Security Hub의 보안</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-securityhub-multiaccount-scripts">AWS Security Hub Multiaccount Scripts</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-securityhub-to-email">aws-securityhub-to-email</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-securityhub-to-slack">aws-securityhub-to-slack</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-control-tower-securityhub-enabler">Centralize SecurityHub</a> <em>- 전체 Control Tower 어카운트들에 Security Hub 활성화</em></li>
+<li>GIT - <a href="https://github.com/splunk/splunk-for-securityHub">About the AWS Security Hub to Splunk integration</a></li>
+<li>GIT - <a href="https://gitlab.aws.dev/awwicker/security-hub-manager-solution">security-hub-manager-solution</a> <em>- 멀티 어카운트 설정 관리</em></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-security-hub-automated-response-and-remediation">aws-security-hub-automated-response-and-remediation</a></li>
+<li>GIT - <a href="https://github.com/splunk/splunk-for-securityHub">splunk/splunk-for-securityHub</a></li>
+<li>QuickStart - <a href="https://aws.amazon.com/ko/solutions/implementations/aws-security-hub-automated-response-and-remediation/">AWS Security Hub Automated Response and Remediation</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/automate-remediation-for-aws-security-hub-standard-findings.html">Automate remediation for AWS Security Hub standard findings</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/automate-security-scans-for-cross-account-workloads-using-amazon-inspector-and-aws-security-hub.html">Automate security scans for cross-account workloads using Amazon Inspector and AWS Security Hub</a></li>
+<li>Solution - <a href="https://aws.amazon.com/solutions/implementations/aws-security-hub-automated-response-and-remediation/?did=sl_card&amp;trk=sl_card">AWS Security Hub Automated Response and Remediation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/opensource/announcing-cloud-custodian-integration-aws-security-hub/">Announcing Cloud Custodian Integration with AWS Security Hub</a> <em>- 오픈소스인 CloudCustodian의 탐지내역들을 Security Hub와 연동하는 방법에 대한 안내</em></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/">How to Enable Custom Actions in AWS Security Hub</a> <em>- CW Event의 Custom Action을 이용하여 이메일/Slack 통지 과정을 연계하는 내용을 설명</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/nine-aws-security-hub-best-practices/">Nine AWS Security Hub best practices</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/enabling-seamless-security-and-compliance-with-sumo-logic-and-aws-security-hub/">Enabling Seamless Security and Compliance with Sumo Logic and AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/apn/how-to-integrate-aws-security-hub-custom-actions-with-pagerduty/">How to Integrate AWS Security Hub Custom Actions with PagerDuty</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/use-aws-fargate-prowler-send-security-configuration-findings-about-aws-services-security-hub/">Use AWS Fargate and Prowler to send security configuration findings about AWS services to Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/automated-response-and-remediation-with-aws-security-hub/">Automated Response and Remediation with AWS Security Hub</a> <em>- CIS Benchmark 기준 탐색건들에 대한 자동 대응 시나리오</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-deploy-the-aws-solution-for-security-hub-automated-response-and-remediation/">How to deploy the AWS Solution for Security Hub Automated Response and Remediation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/monitoring-aws-certificate-manager-private-ca-with-aws-security-hub/">Monitoring AWS Certificate Manager Private CA with AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/integrating-aws-cloudformation-security-tests-with-aws-security-hub-and-aws-codebuild-reports/">Integrating AWS CloudFormation security tests with AWS Security Hub and AWS CodeBuild reports</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-build-ci-cd-pipeline-container-vulnerability-scanning-trivy-and-aws-security-hub/">How to build a CI/CD pipeline for container vulnerability scanning with Trivy and AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/aligning-iam-policies-to-user-personas-for-aws-security-hub/">Aligning IAM policies to user personas for AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-set-up-a-recurring-security-hub-summary-email/">How to set up a recurring Security Hub summary email</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-import-aws-config-rules-evaluations-findings-security-hub/">How to import AWS Config rules evaluations as findings in Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/">Automating AWS Security Hub Alerts with AWS Control Tower lifecycle events</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/enabling-aws-security-hub-integration-with-aws-chatbot/">Enabling AWS Security Hub integration with AWS Chatbot</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-set-up-two-way-integration-between-aws-security-hub-and-servicenow/">How to set up a two-way integration between AWS Security Hub and ServiceNow</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-1-build-a-custom-automation-of-aws-audit-manager-with-aws-security-hub/">Integrate across the Three Lines Model (Part 1): Build a custom automation of AWS Audit Manager with AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-create-auto-suppression-rules-in-aws-security-hub/">How to create auto-suppression rules in AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/architecture/visualize-aws-security-hub-findings-using-analytics-and-business-intelligence-tools/">Visualize AWS Security Hub Findings using Analytics and Business Intelligence Tools</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-set-up-a-two-way-integration-between-aws-security-hub-and-jira-service-management/">How to set up a two-way integration between AWS Security Hub and Jira Service Management</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/correlate-security-findings-with-aws-security-hub-and-amazon-eventbridge/">Correlate security findings with AWS Security Hub and Amazon EventBridge</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/automating-aws-security-hub-alerts-with-aws-control-tower-lifecycle-events/">Automating AWS Security Hub Alerts with AWS Control Tower lifecycle events</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/enable-security-hub-pci-dss-standard-across-your-organization-and-disable-specific-controls/">Enable Security Hub PCI DSS standard across your organization and disable specific controls</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-set-up-a-recurring-security-hub-summary-email/">How to set up a recurring Security Hub summary email</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/publicsector/automate-security-orchestration-in-aws-security-hub-with-trend-micro-cloud-one/">Automate security orchestration in AWS Security Hub with Trend Micro Cloud One</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/devops/automated-security-and-compliance-remediation-at-hdi/">Automated security and compliance remediation at HDI</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/continuous-verification-of-network-compliance-using-amazon-vpc-network-access-analyzer-and-aws-security-hub/">Continuous verification of network compliance using Amazon VPC Network Access Analyzer and AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/continuous-runtime-security-monitoring-with-aws-security-hub-and-falco/">Continuous runtime security monitoring with AWS Security Hub and Falco</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/automatically-resolve-security-hub-findings-for-resources-that-no-longer-exist/">Automatically resolve Security Hub findings for resources that no longer exist</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/disabling-security-hub-controls-in-a-multi-account-environment/">Disabling Security Hub controls in a multi-account environment</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-use-aws-security-hub-and-amazon-opensearch-service-for-siem/">How to use AWS Security Hub and Amazon OpenSearch Service for SIEM</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/best-practices-for-cross-region-aggregation-of-security-findings/">Best practices for cross-Region aggregation of security findings</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/korea/best-practices-for-cross-region-aggregation-of-security-findings/">AWS Security Hub을 통한 리전 간 보안이슈 통합 집계 모범 사례</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/korea/how-to-use-aws-security-hub-and-amazon-opensearch-service-for-siem/">AWS Security Hub와 OpenSearch를 활용한 SIEM 구성 및 활용 방안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/use-security-hub-custom-actions-to-remediate-s3-resources-based-on-macie-discovery-results/">Use Security Hub custom actions to remediate S3 resources based on Macie discovery results</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/use-aws-chatbot-in-slack-to-remediate-security-findings-from-aws-security-hub/">Use AWS Chatbot in Slack to remediate security findings from AWS Security Hub</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-export-aws-security-hub-findings-to-csv-format/">How to export AWS Security Hub findings to CSV format</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-set-up-and-track-slas-for-resolving-security-hub-findings/">How to set up and track SLAs for resolving Security Hub findings</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-subscribe-to-the-new-security-hub-announcements-topic-for-amazon-sns/">How to subscribe to the new Security Hub Announcements topic for Amazon SNS</a></li>
+</ul>
+<h2 id="iot-device-defender"><a href="https://aws.amazon.com/ko/iot-device-defender/?nc2=h_m1">IoT Device Defender</a></h2>
+<p>AWS IoT Device Defender는 여러 IoT 디바이스의 플릿을 보호할 수 있는 완전관리형 서비스입니다. AWS IoT Device Defender는 IoT 구성을 지속적으로 감사하여 보안 모범 사례를 벗어나지 않도록 합니다. IoT Device Defender의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/iot/latest/developerguide/device-defender.html">AWS IoT Device Defender</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python">AWS IoT Device Defender Agent SDK (Python)</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-iot-device-defender-workshop">AWS IoT Device Defender Workshop(re:Invent 2018)</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/iot/ml-detect-for-device-defender/">AWS IoT Device Defender Announces ML Detect GA</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/iot/implement-security-monitoring-across-ot-iiot-and-cloud-with-aws-security-hub/">Implement security monitoring across OT, IIoT and cloud with AWS Security Hub</a></li>
+</ul>
+<h2 id="vpc-flow-logs"><a href="https://docs.aws.amazon.com/ko_kr/AmazonVPC/latest/UserGuide/flow-logs.html">VPC Flow Logs</a></h2>
+<p>VPC 상의 네트웍 인터페이스(NIC)별로 인바운드/아웃바운드 IP트래픽의 제어 결과에 대한 정보를 제공하며, Amazon CloudWatch Logs에 저장됩니다. VPC Flow Logs를 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs.html">VPC 흐름 로그</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-vpc-flow-log-appender">aws-vpc-flow-log-appender</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/analyzing-vpc-flow-logs-with-amazon-kinesis-firehose-amazon-athena-and-amazon-quicksight/">Analyzing VPC Flow Logs with Amazon Kinesis Firehose, Amazon Athena, and Amazon QuickSight</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/learn-from-your-vpc-flow-logs-with-additional-meta-data/">Learn From Your VPC Flow Logs With Additional Meta-Data</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/aws/vpc-flow-logs-log-and-view-network-traffic-flows/">VPC Flow Logs – Log and View Network Traffic Flows</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-visualize-and-refine-your-networks-security-by-adding-security-group-ids-to-your-vpc-flow-logs/#more-3559">How to Visualize and Refine Your Network’s Security by Adding Security Group IDs to Your VPC Flow Logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/power-data-ingestion-into-splunk-using-amazon-kinesis-data-firehose/">Power data ingestion into Splunk using Amazon Kinesis Data Firehose</a> <em>- Splunk HEC과 Kinesis Firehose간 연계방안 설명을 VPC Flow Logs를 대상으로 안내</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/analyzing-vpc-flow-logs-got-easier-with-support-for-s3-as-a-destination/">Analyzing Amazon VPC Flow Log data with support for Amazon S3 as a destination</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/using-aws-cost-usage-reports-cost-allocation-tags-to-understand-vpc-flow-logs-data-ingestion-costs-in-amazon-s3/">Using AWS Cost and Usage Reports and Cost Allocation Tags to understand VPC Flow Logs data ingestion costs in Amazon S3</a></li>
+</ul>
+<h2 id="trusted-advisor-security"><a href="https://aws.amazon.com/ko/premiumsupport/trustedadvisor/">Trusted Advisor - Security</a></h2>
+<p>AWS의 모범사례 기준으로 보안 개선에 도움을 주는 무료 도구입니다.Trusted Advisor는 비용, 성능, 내결함성, 서비스 한도와 함께 보안 항목에 대한 점검을 수행하고 결과를 확인할 수 있습니다. Truseted Advisor 보안 점검 기능을 이용하는데 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/trusted-advisor.html">AWS Trusted Advisor</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/awssupport/latest/user/security.html">AWS Support의 보안</a></li>
+<li>QuickStart - <a href="https://aws.amazon.com/ko/solutions/implementations/limit-monitor/">AWS Limit Monitor</a></li>
+<li>GIT - <a href="https://github.com/newscorpaus/consigliere">Consigliere</a> <em>– 멀티 어카운트 환경 용 Trusted Advisor 대쉬보드</em></li>
+<li>GIT - <a href="https://github.com/beeva/trusted-overlord">Trusted Overload</a> <em>– 멀티 어카운트 환경 상의 Trusted Advisor Alarms, AWS Health Notification, AWS Support Cases 통합 뷰 제공</em></li>
+<li>GIT - <a href="https://github.com/aws/Trusted-Advisor-Tools/tree/master/ExposedAccessKeys">Trusted Advisor Exposed Keys CloudWatch Event Monitor</a> <em>– AWS 액세스 키가 유출되면 TA가 탐지하여 IAM으로 키를 삭제하고,해당 키로 실행된 이벤트들에 대한 요약을 CloudTrail상에서 분석하여 SNS로 전달</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/organizational-view-for-trusted-advisor/">View AWS Trusted Advisor recommendations at scale with AWS Organizations</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/multi-account-aws-trusted-advisor-summaries-now-available-aws-systems-manager-explorer/">Multi-account AWS Trusted Advisor summaries now available in AWS Systems Manager Explorer</a></li>
+</ul>
+<h2 id="aws">AWS 서비스 별 로그와 감사 관련</h2>
+<p>CloudTrail상의 JSON 로그 외에도 다양한 AWS 서비스들이 자체적인 로깅 기능을 제공합니다. 관련하여 참고할 만한 유용한 내용들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/quickstart/latest/linux-bastion/bastion-logging.html">Bastion Host Command History Logging</a> <em>– 리눅스 Bastions Host 퀵스타트 템플릿에 적용되어 있는 커맨드 히스토리 로깅</em></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/classic/access-log-collection.html">Classic Load Balancer 액세스 로그</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">Cloudfront 액세스 로그</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/LogFormat.html">S3 액세스 로그</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-access-logs.html">ALB 액세스 로그</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Auditing">RDS PostgreSQL DB 인스턴스에 대한 감사 로깅</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.AuditPlugin.html">RDS MySQL 인스턴스에서 MariaDB 감사 플러그인 지원</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Options.html">RDS MariaDB 감사 플러그인 지원</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Logs.html">RDS Microsoft SQL Server 로그 작업</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/USER_LogAccess.html">Amazon RDS 데이터베이스 로그 파일</a> <em>- RDS Maria, MS SQL, mySQL, Oracle, postGre 에 대한 로그 파일 안내</em></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/AuroraMySQL.Auditing.html">RDS Aurora MySQL DB 클러스터에서 고급 감사 사용하기</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Concepts.MySQL.html">RDS Aurora MySQL 데이터베이스 로그 파일</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.Concepts.PostgreSQL.html">RDS Aurora PostgreSQL 데이터베이스 로그 파일</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.Log.html">RDS Oracle DB 인스턴스에 대한 공통 DBA 로그 작업</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/redshift/latest/mgmt/db-auditing.html">Redshift 감사 로깅</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/logging-using-cloudtrail.html">AWS CloudTrail를 사용하여 DynamoDB 작업 로깅</a></li>
+<li><a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html">Auditing Amazon DocumentDB Events</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_awslogs.html">ECS - Using the awslogs Log Driver</a> <em>- CloudWatch Logs를 이용한 ECS 로깅</em></li>
+<li><a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Control Plane Logging</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/athena/latest/ug/querying-AWS-service-logs.html">Athena AWS 서비스 로그 쿼리</a> <em>- Athena를 이용하여 S3에 적재되는 CloudTrail, CloudFront, ELB, ALB, VPC Flow logs 에 대한 SQL기반 감사에 대한 안내</em></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/iot/latest/developerguide/device-defender.html">Device Defender</a> <em>- AWS IoT 디바이스에 대한 감사/모니터링</em></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/nodejs-prog-model-logging.html">AWS Lambda 함수 로깅(Node.js)</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-logging.html">AWS Lambda 함수 로깅(Python)</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/ruby-logging.html">AWS Lambda 함수 로깅(Ruby)</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/java-logging.html">AWS Lambda 함수 로깅(Java)</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/go-programming-model-logging.html">AWS Lambda 함수 로깅(Go)</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/dotnet-logging.html">AWS Lambda 함수 로깅(C#)</a></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/logging/aws-native-security-logging-capabilities/">Native AWS Security-Logging Capabilities</a> <em>– CloudTrail, Config, Detailed Billing, S3, ELB, CloudFront, Redshift, RDS, VPC Flow Logs 등 각 서비스별 로그 기능에 대한 소개</em></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/networking/vpc-network-management-and-monitoring/">VPC Network Management and Monitoring</a> <em>– VPC Flow Log 등을 기반으로 VPC 모니터링을 위한 몇가지 방법을 소개</em></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/networking/accessing-vpc-endpoints-from-remote-networks/">Accessing VPC Endpoints From Remote Networks</a> <em>– 온프레미스 등 VPC 외부에서 VPC S3 Endpoint로의 안전하고 가용성 있는 접근 통로 구축에 대한 소개</em></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/logging/centralized-logging/">Centralized Logging</a> <em>– 로그 통합을 위한 AWS 및 파트너 솔루션에 대한 소개</em></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/">Aggregating Lambda@Edge Logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/compute/centralized-container-logs-with-amazon-ecs-and-amazon-cloudwatch-logs/">Centralized Container Logs with Amazon ECS and Amazon CloudWatch Logs</a></li>
+</ul>
+<h2 id="aws-well-architected-tool"><a href="https://aws.amazon.com/ko/well-architected-tool/?nc2=h_m1">AWS Well-Architected Tool</a></h2>
+<p>AWS Well-Architected Tool은 워크로드 상태를 검토하고 AWS 아키텍처 모범 사례와 비교하는 데 도움이 됩니다. AWS Well-Architected Tool의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/wellarchitected/latest/userguide/security.html">AWS Well-Architected Tool 보안</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-well-architected-labs/tree/master/Security">AWS Well-Architected Security Labs</a></li>
+</ul>
+<h2 id="well-architected-lenses"><a href="https://aws.amazon.com/ko/architecture/well-architected/?nc1=h_ls&amp;wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&amp;wa-lens-whitepapers.sort-order=desc">Well-Architected Lenses</a></h2>
+<p>렌즈는 AWS Well-Architected가 기계 학습, 분석, 서버리스, 고성능 컴퓨팅(HPC), IoT(사물 인터넷) 및 금융 서비스 등 업종별, 기술 분야별로 제공하는 지침을 확장합니다. WS Well-Architected Lenses의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/wellarchitected/latest/management-and-governance-lens/management-and-governance-lens.html">Management and Governance Lens</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/gametech/introducing-the-games-industry-lens-for-the-aws-well-architected-framework/">Introducing the Games Industry Lens for the AWS Well-Architected Framework</a></li>
+</ul>
+<h2 id="_1">거버넌스 및 탐지 통제와 관련된 기타 유용한 링크들</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/general/latest/gr/aws-security-audit-guide.html">AWS 보안 감사 지침</a></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/account-management/real-time-insights-account-activity/">Real-Time Insights on AWS Account Activity</a> <em>– AWS 어카운트 활동에 대한 준 실시간 모니터링을 위한 CloudTrail 로그 기반 대쉬보드 환경을 만들어 주는 솔루션</em></li>
+<li>QuickStart - <a href="https://aws.amazon.com/ko/quickstart/architecture/security-analytics-with-palo-alto-networks-and-splunk/">Security and analytics with Palo Alto Networks and Splunk</a> <em>– 팔로알토 VM시리즈 방화벽과 Splunk APP분석 환경간의 연동 템플릿을 제공하는 퀵스타트</em></li>
+<li>QuickStart - <a href="https://aws.amazon.com/quickstart/architecture/cicd-taskcat/">CI/CD Pipeline for AWS CloudFormation templates</a> <em>- 오픈소스인 TaskCat으로 CloudFormation 템플릿들을 테스팅하는 CodePipeline을 만들어 주는 퀵스타트</em></li>
+<li>QuickStart - <a href="https://aws.amazon.com/ko/solutions/implementations/centralized-logging/">Centralized Logging</a></li>
+<li><a href="https://www.cisecurity.org/cis-benchmarks/">CIS Benchmark 시리즈</a> <em>- OS, Web, App, DB, DNS, Cloud 등 다양한 플랫폼에 대한 권장 설정들을 안내하는 백서를 다운받을 수 있는 싸이트</em></li>
+<li>동영상 [AWS Innovate 2017] - <a href="https://www.youtube.com/watch?v=UnT3QTDNF2c">보안 및 컴플라이언스 자동화</a></li>
+<li>백서 - <a href="https://www.sans.org/reading-room/whitepapers/detection/packet-capture-aws-37905">SANS Institute - Packet Capture on AWS</a> <em>- 외부 백서</em></li>
+<li>GIT - <a href="https://nccgroup.github.io/Scout2/">NCC Scout 2</a> <em>– 어카운트 단위로 EC2, IAM, RDS, S3에 대한 13가지 항목 점검 스크립트</em></li>
+<li>GIT - <a href="https://github.com/nccgroup/ScoutSuite">NCC Scout Suite</a></li>
+<li>GIT – <a href="https://github.com/stelligent/cfn_nag">Stelligent CFN_NAG</a> <em>– Ruby 기반으로 CloudFormation 템플릿의 보안점검 기능 제공 도구(IAM, S/G, Access Log활성화, Encryption적용 체크 등)</em></li>
+<li>GIT – <a href="https://github.com/aws-cloudformation/cfn-python-lint">CloudFormation Linter</a> <em>– Python 기반으로 CloudFormation 템플릿의 보안점검 기능 제공 도구</em></li>
+<li>GIT – <a href="https://github.com/awslabs/aws-security-benchmark/">AWS Security Benchmark</a> <em>– CIS AWS Benchmark상의 보안 항목들을 점검해주는 스크립트들</em></li>
+<li>GIT - <a href="https://github.com/nozaq/terraform-aws-secure-baseline">terraform-aws-secure-baseline</a> <em>- CIS Benchmark 1.2 기준 보안 설정들을 어카운트 환경에 적용해 주는 테라폼 모듈</em></li>
+<li>GIT - <a href="https://github.com/iann0036/AWSConsoleRecorder">Console Recorder</a> <em>- AWS 관리 콘솔상의 작업을 Boto, CLI, AWS SDK, 자바스크립트, CloudFormation, CDK 코드 등으로 추출해 주는 브라우져 플러그인 프로젝트(지원되는 API 내역 확인 필)</em></li>
+<li>GIT - <a href="https://github.com/nccgroup/aws-inventory">AWS Inventory</a> <em>- 계정 내 모든 AWS 리소스들을 추출하여 목록화</em></li>
+<li>GIT - <a href="https://github.com/FSecureLABS/awspx">FSecure AWSPX</a></li>
+<li>GIT - <a href="https://github.com/duo-labs/cloudmapper">CloudMapper</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/siem-on-amazon-elasticsearch">SIEM on Amazon Elasticsearch Service</a></li>
+<li>Workshop - <a href="https://deh4m73phis7u.cloudfront.net/log-analytics/mainlab/">ElasticSearch Log Analytic workshop</a></li>
+<li><a href="https://asecure.cloud/">ASECURE.CLOUD</a> <em>- Step-by-step가이드, CloudFormation템플릿, CLI script, 블로그, 오픈소스 툴 안내</em></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-monitor-host-based-intrusion-detection-system-alerts-on-amazon-ec2-instances/">How to Monitor Host-Based Intrusion Detection System Alerts on Amazon EC2 Instances</a> <em>– OSSEC(Open Source Security) HIDS의 로그를 기반으로 ElasticSearch, Kibana를 통해 가시화 시키는 예제</em></li>
+<li>동영상 [AWS Builders Online] - <a href="https://www.youtube.com/watch?v=KGibV5yV9U8">보안 사고 예방을 위한 주요 AWS 모범 사례</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/centralized-logging-and-multiple-account-security-guardrails.html">Centralized logging and multiple-account security guardrails</a></li>
+<li>Solution - <a href="https://aws.amazon.com/ko/solutions/implementations/centralized-logging/">중앙 집중식 로깅</a></li>
+<li>Solution - <a href="https://aws.amazon.com/ko/solutions/implementations/verifiable-controls-evidence-store/">검증 가능한 조치 증거 저장소</a> <em>- QLDB/DDB 사용</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/infoblox-inc-built-a-patent-pending-homograph-attack-detection-model-for-dns-with-amazon-sagemaker/">Infoblox Inc. built a patent-pending homograph attack detection model for DNS with Amazon SageMaker</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/aws-health-aware-customize-aws-health-alerts-for-organizational-and-personal-aws-accounts/">AWS Health Aware – Customize AWS Health Alerts for Organizational and Personal AWS Accounts</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/optimizing-cloud-governance-on-aws-integrating-the-nist-cybersecurity-framework-aws-cloud-adoption-framework-and-aws-well-architected/">Optimizing cloud governance on AWS: Integrating the NIST Cybersecurity Framework, AWS Cloud Adoption Framework, and AWS Well-Architected</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/opensource/introducing-assisted-log-enabler-for-aws/">Introducing Assisted Log Enabler for AWS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/opensource/introducing-aws-security-analytics-bootstrap/">Introducing AWS Security Analytics Bootstrap</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/enterprise-strategy/unshadow-it/">Unshadow IT</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/audit-aws-service-events-with-amazon-eventbridge-and-amazon-kinesis-data-firehose/">Audit AWS service events with Amazon EventBridge and Amazon Kinesis Data Firehose</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-detect-suspicious-activity-in-your-aws-account-by-using-private-decoy-resources/">How to detect suspicious activity in your AWS account by using private decoy resources</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/aws-co-announces-release-of-the-open-cybersecurity-schema-framework-ocsf-project/">AWS co-announces release of the Open Cybersecurity Schema Framework (OCSF) project</a></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

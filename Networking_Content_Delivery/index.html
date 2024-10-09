@@ -1,0 +1,1744 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../incident_response/">
+      
+      
+        <link rel="next" href="../Developer_Tools/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Networking & Content Delivery - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#networking-content-delivery" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Networking & Content Delivery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route 53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic Load Balancing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Connect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-app-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS App Mesh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-accelerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Accelerator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud WAN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking-content-delivery_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking &amp; Content Delivery과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route 53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elastic Load Balancing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Connect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-app-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS App Mesh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-accelerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Accelerator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud WAN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking-content-delivery_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking &amp; Content Delivery과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="networking-content-delivery">Networking &amp; Content Delivery</h1>
+<p>VPC에 대한 내용은 AWS 보안 서비스의 인프라 보안 영역에 있습니다. 이곳에서는 VPC를 제외한 다른 네트워크 및 컨텐츠 전송 서비스들과 관련된 보안 기능들에 대한 유용한 링크들을 제공합니다.</p>
+<h2 id="cloudfront"><a href="https://aws.amazon.com/ko/cloudfront/?nc2=h_m1">CloudFront</a></h2>
+<p>Amazon CloudFront는 개발자 친화적 환경에서 짧은 지연 시간과 빠른 전송 속도로 데이터, 동영상, 애플리케이션 및 API를 전 세계 고객에게 안전하게 전송하는 고속 콘텐츠 전송 네트워크(CDN) 서비스입니다. CloudFront의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/security.html">Amazon CloudFront의 보안</a></li>
+<li>GIT - <a href="https://github.com/prevade/cloudjack#aws-route53cloudfront-vulnerability-assessment-utility">CloudJack - AWS Route53/CloudFront Vulnerability Assessment Utility</a> <em>- Route53과 CloudFront 간 설정 불일치를 통해 발생하는 서브도메인 하이제킹 취약점을 점검하는 스크립트</em></li>
+<li>GIT - <a href="https://github.com/peteragility/cf-auth">peteragility/cf-auth: Cookieless Token AuthN/AuthZ Solution for HLS/DASH Streaming via Amazon CloudFront</a></li>
+<li>GIT - <a href="https://github.com/egunda/secure-HLS">egunda/secure-HLS: Rewriting manifest file to deliver HLS secure streaming</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/check-an-amazon-cloudfront-distribution-for-access-logging-https-and-tls-version.html">Check an Amazon CloudFront distribution for access logging, HTTPS, and TLS version</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/authorizationedge-using-cookies-protect-your-amazon-cloudfront-content-from-being-downloaded-by-unauthenticated-users/">Authorization@Edge using cookies: Protect your Amazon CloudFront content from being downloaded by unauthenticated users</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/continually-enhancing-domain-security-on-amazon-cloudfront/">Continually Enhancing Domain Security on Amazon CloudFront</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/aggregating-lambdaedge-logs/">Aggregating Lambda@Edge Logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/big-data/analyze-your-amazon-cloudfront-access-logs-at-scale/">Analyze your Amazon CloudFront access logs at scale</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-enhance-the-security-of-sensitive-customer-data-by-using-amazon-cloudfront-field-level-encryption/">How to Enhance the Security of Sensitive Customer Data by Using Amazon CloudFront Field-Level Encryption</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-enhance-amazon-cloudfront-origin-security-with-aws-waf-and-aws-secrets-manager/">How to enhance Amazon CloudFront origin security with AWS WAF and AWS Secrets Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/automatically-update-security-groups-for-amazon-cloudfront-ip-ranges-using-aws-lambda/">Automatically update security groups for Amazon CloudFront IP ranges using AWS Lambda</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/">Introducing CloudFront Functions – Run Your Code at the Edge with Low Latency at Any Scale</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/cloudfront-functions-a-new-security-paradigm-for-cdn-edge-computing/">CloudFront Functions – A New Security Paradigm for CDN Edge Computing</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/adding-http-security-headers-using-lambdaedge-and-amazon-cloudfront/">Adding HTTP Security Headers Using Lambda@Edge and Amazon CloudFront</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/protect-public-clients-for-amazon-cognito-by-using-an-amazon-cloudfront-proxy/">Protect public clients for Amazon Cognito by using an Amazon CloudFront proxy</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/unpacking-sni-based-ssl-and-dedicated-ip-ssl-for-amazon-cloudfront/">Unpacking SNI-based SSL and dedicated IP SSL for Amazon CloudFront</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-response-headers-policies/">Amazon CloudFront introduces Response Headers Policies</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/secure-and-cost-effective-video-streaming-using-cloudfront-signed-urls/">Secure and Cost-Effective Video Streaming using CloudFront signed URLs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/media/secure-content-using-cloudfront-functions/">Secure content using CloudFront Functions</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/media/awse-protecting-your-media-assets-with-token-authentication/">Protecting your media assets with token authentication</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/serving-sse-kms-encrypted-content-from-s3-using-cloudfront/">Serving SSE-KMS encrypted content from S3 using CloudFront</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-protect-sensitive-data-for-its-entire-lifecycle-in-aws/">How to protect sensitive data for its entire lifecycle in AWS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-announces-cache-and-origin-request-policies/">Amazon CloudFront Announces Cache and Origin Request Policies</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/">Limit access to your origins using the AWS-managed prefix list for Amazon CloudFront</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/">Amazon CloudFront introduces Origin Access Control (OAC)</a></li>
+</ul>
+<h2 id="route-53"><a href="https://aws.amazon.com/ko/route53/?nc2=h_m1">Route 53</a></h2>
+<p>Amazon Route 53는 높은 가용성과 확장성이 뛰어난 클라우드 Domain Name System (DNS) 웹 서비스입니다. Route 53의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/security.html">Amazon Route 53의 보안</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/reference/route53/index.html">Amazon Route 53 DNS and health checking in the AWS CLI Reference</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/r53recovery/latest/dg/security.html">Security in Amazon Route 53 Application Recovery Controller</a></li>
+<li>GIT - <a href="https://github.com/prevade/cloudjack#aws-route53cloudfront-vulnerability-assessment-utility">CloudJack - AWS Route53/CloudFront Vulnerability Assessment Utility</a> <em>- Route53과 CloudFront 간 설정 불일치를 통해 발생하는 서브도메인 하이제킹 취약점을 점검하는 스크립트</em></li>
+<li>Support - <a href="https://aws.amazon.com/premiumsupport/knowledge-center/private-hosted-zone-different-account/">How do I associate a Route 53 private hosted zone with a VPC on a different AWS account?</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/log-your-vpc-dns-queries-with-route-53-resolver-query-logs/">Log your VPC DNS queries with Route 53 Resolver Query Logs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/extending-your-control-tower-network-security-with-aws-route-53-dns-firewall/">Extending your Control Tower Network security with Amazon Route 53 DNS Firewall</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/architecture/using-vpc-endpoints-in-multi-region-architectures-with-route-53-resolver/">Using VPC Endpoints in Multi-Region Architectures with Route 53 Resolver </a></li>
+</ul>
+<h2 id="elastic-load-balancing"><a href="https://aws.amazon.com/ko/elasticloadbalancing/">Elastic Load Balancing</a></h2>
+<p>Elastic Load Balancing은 들어오는 애플리케이션 트래픽을 Amazon EC2 인스턴스, 컨테이너, IP 주소, Lambda 함수와 같은 여러 대상에 자동으로 분산시킵니다. Elastic Load Balancing은 단일 가용 영역 또는 여러 가용 영역에서 다양한 애플리케이션 부하를 처리할 수 있습니다. Elastic Load Balancing의 보안관련 기능들은 아래와 같습니다. </p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/security.html">Elastic Load Balancing의 보안</a></li>
+<li><a href="https://network.exampleloadbalancer.com/">ELB 데모</a></li>
+<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">What is a Gateway Load Balancer?</a></li>
+<li>Support - <a href="https://aws.amazon.com/premiumsupport/knowledge-center/athena-analyze-access-logs/">How do I analyze my Application Load Balancer access logs using Athena?</a></li>
+<li>Support - <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/associate-acm-certificate-alb-nlb/">ACM/SSL 인증서를 로드 밸런서에 연결</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/ensure-aws-load-balancers-use-secure-listener-protocols-https-ssl-tls.html">Ensure AWS load balancers use secure listener protocols (HTTPS, SSL/TLS)</a></li>
+<li>Reference Arch. - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/gateway-load-balancer-inspection-east-west-ra.pdf">Architecture for Gateway Load Balancer – East/West Inspection</a></li>
+<li>Reference Arch. - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/gateway-load-balancer-inspection-north-south-ra.pdf">Architecture for Gateway Load Balancer – North/South Inspection</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-gateway-load-balancer-code-samples/tree/main/aws-cloudformation">AWS CloudFormation samples for AWS Gateway Load Balancer (GWLB)</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-gateway-load-balancer-suricata-ids-ips-nsm">Building an open-source(Suricata) IPS/IDS Service on Gateway Load Balancer</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-gateway-load-balancer-code-samples/tree/main/aws-cloudformation/vpc_routing_enhancement_architectures">GLB : VPC Routing Enhancement Based Architectures</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/">Using a Network Load Balancer with the NGINX Ingress Controller on Amazon EKS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-securely-publish-internet-applications-at-scale-using-application-load-balancer-and-aws-privatelink/">How to securely publish Internet applications at scale using Application Load Balancer and AWS PrivateLink</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/introducing-aws-gateway-load-balancer-easy-deployment-scalability-and-high-availability-for-partner-appliances/">Introducing AWS Gateway Load Balancer – Easy Deployment, Scalability, and High Availability for Partner Appliances</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-gateway-load-balancer-supported-architecture-patterns/">Introducing AWS Gateway Load Balancer: Supported architecture patterns</a></li>
+<li>Ext.Blog - <a href="https://www.sentiatechblog.com/geneveproxy-an-aws-gateway-load-balancer-reference-application">GeneveProxy - an AWS Gateway Load Balancer reference application</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-network-traffic-inspection-using-aws-gateway-load-balancer/">Scaling network traffic inspection using AWS Gateway Load Balancer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-inspection-architecture-with-aws-gateway-load-balancer-and-aws-transit-gateway/">Centralized inspection architecture with AWS Gateway Load Balancer and AWS Transit Gateway</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/integrate-your-custom-logic-or-appliance-with-aws-gateway-load-balancer/">Integrate your custom logic or appliance with AWS Gateway Load Balancer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/">Using static IP addresses for Application Load Balancers</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-integrate-third-party-firewall-appliances-into-an-aws-environment/">How to integrate third-party firewall appliances into an AWS environment</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/networking-and-content-delivery/best-practices-for-deploying-gateway-load-balancer/">Best practices for deploying Gateway Load Balancer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/building-an-open-source-ids-ips-service-for-gateway-load-balancer/">Building an Open Source IDS IPS service for Gateway Load Balancer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/application-load-balancer-type-target-group-for-network-load-balancer/">Application Load Balancer-type Target Group for Network Load Balancer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/introduction-to-traffic-mirroring-to-gwlb-endpoints-as-target/">Introduction to Traffic Mirroring to GWLB Endpoints as Target</a></li>
+</ul>
+<h2 id="api-gateway"><a href="https://aws.amazon.com/ko/api-gateway/?nc2=h_m1">API Gateway</a></h2>
+<p>Amazon API Gateway는 어떤 규모에서든 개발자가 API를 손쉽게 생성, 게시, 유지 관리, 모니터링 및 보안할 수 있게 해주는 완전관리형 서비스입니다. API Gateway의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/security.html">Amazon API Gateway 보안</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-serverless-security-workshop">Serverless Security Workshop</a></li>
+<li>Support - <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/api-gateway-vpc-connections/">VPC에서 API Gateway API에 연결할 때 HTTP 403 Forbidden 오류가 발생하는 이유는 무엇입니까?</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/secure-api-access-with-amazon-cognito-federated-identities-amazon-cognito-user-pools-and-amazon-api-gateway/">Secure API Access with Amazon Cognito Federated Identities, Amazon Cognito User Pools, and Amazon API Gateway</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/architecture/how-to-architect-apis-for-scale-and-security/">How to Architect APIs for Scale and Security</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/use-aws-lambda-authorizers-with-a-third-party-identity-provider-to-secure-amazon-api-gateway-rest-apis/">Use AWS Lambda authorizers with a third-party identity provider to secure Amazon API Gateway REST APIs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/introducing-mutual-tls-authentication-for-amazon-api-gateway/">Introducing mutual TLS authentication for Amazon API Gateway</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/automating-mutual-tls-setup-for-amazon-api-gateway/">Automating mutual TLS setup for Amazon API Gateway</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/troubleshooting-amazon-api-gateway-with-enhanced-observability-variables/">Troubleshooting Amazon API Gateway with enhanced observability variables</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/introducing-iam-and-lambda-authorizers-for-amazon-api-gateway-http-apis/">Introducing IAM and Lambda authorizers for Amazon API Gateway HTTP APIs</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/accessing-an-aws-api-gateway-via-static-ip-addresses-provided-by-aws-global-accelerator/">Accessing an AWS API Gateway via static IP addresses provided by AWS Global Accelerator</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-secure-api-gateway-http-endpoints-with-jwt-authorizer/">How to secure API Gateway HTTP endpoints with JWT authorizer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/compute/implementing-mutual-tls-for-java-based-aws-lambda-functions-2/">Implementing mutual TLS for Java-based AWS Lambda functions</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/architecture/enriching-amazon-cognito-features-with-an-amazon-api-gateway-proxy/">Enriching Amazon Cognito features with an Amazon API Gateway proxy</a></li>
+<li>Blog - <a href="http://aws-security.kr.s3-website.ap-northeast-2.amazonaws.com/Networking_Content_Delivery/">Restricting access on HTTP API Gateway Endpoint with Lambda Authorizer</a></li>
+</ul>
+<h2 id="direct-connect"><a href="https://aws.amazon.com/ko/directconnect/?nc2=h_m1">Direct Connect</a></h2>
+<p>AWS Direct Connect는 온프레미스에서 AWS로 전용 네트워크 연결을 쉽게 설정할 수 있는 클라우드 서비스 솔루션입니다. Direct Connect의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/security.html">AWS Direct Connect의 보안</a></li>
+</ul>
+<h2 id="aws-app-mesh"><a href="https://aws.amazon.com/ko/app-mesh/?nc2=h_m1">AWS App Mesh</a></h2>
+<p>AWS App Mesh는 애플리케이션 수준의 네트워킹을 통해 서비스가 여러 유형의 컴퓨팅 인프라에서 서로 원활하게 통신할 수 있게 지원하는 서비스 메시입니다. AWS App Mesh의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/app-mesh/latest/userguide/security.html">Security in AWS App Mesh</a></li>
+<li>GIT - <a href="https://github.com/aws/aws-app-mesh-roadmap">AWS App Mesh Roadmap</a></li>
+<li>GIT - <a href="https://github.com/aws/aws-app-mesh-examples/tree/master/walkthroughs/howto-mutual-tls-file-provided">Configuring Mutual TLS with File Provided TLS Certificates</a></li>
+<li>GIT - <a href="https://github.com/aws/aws-app-mesh-examples/tree/master/walkthroughs/howto-k8s-mtls-sds-based">Amazon EKS mutual TLS walkthrough with SPIRE</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/how-to-use-acm-private-ca-for-enabling-mtls-in-aws-app-mesh/">How to use ACM Private CA for enabling mTLS in AWS App Mesh</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/containers/enabling-mtls-in-aws-app-mesh-using-spiffe-spire-in-a-multi-account-amazon-eks-environment/">Enabling mTLS in AWS App Mesh using SPIFFE/SPIRE in a multi-account Amazon EKS environment</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/containers/three-things-to-consider-when-implementing-mutual-tls-with-aws-app-mesh/">Three things to consider when implementing Mutual TLS with AWS App Mesh</a></li>
+</ul>
+<h2 id="aws-cloud-map"><a href="https://aws.amazon.com/ko/cloud-map/?nc2=h_m1">AWS Cloud Map</a></h2>
+<p>AWS Cloud Map은 클라우드 리소스 검색 서비스입니다. AWS Cloud Map의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/cloud-map/latest/dg/security.html">AWS Cloud Map의 보안</a></li>
+</ul>
+<h2 id="global-accelerator"><a href="https://aws.amazon.com/ko/global-accelerator/?nc2=h_m1">Global Accelerator</a></h2>
+<p>AWS Global Accelerator는 글로벌 사용자에게 제공하는 애플리케이션의 가용성과 성능을 개선하는 네트워킹 서비스입니다. Global Accelerator의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/global-accelerator/latest/dg/security.html">AWS Global Accelerator security</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/">Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/improve-data-delivery-throughput-for-internet-facing-file-transfer-workloads-using-aws-global-accelerator-and-aws-transfer-family-services/">Improve throughput for internet facing file transfers using AWS Global Accelerator and AWS Transfer Family services</a></li>
+</ul>
+<h2 id="aws-cloud-wan"><a href="https://aws.amazon.com/ko/cloud-wan/?nc1=h_ls">AWS Cloud WAN</a></h2>
+<p>AWS Cloud WAN은 클라우드 및 온-프레미스 환경에서 실행되는 리소스를 연결하는 통합 된 글로벌 네트워크를 빌드, 관리 및 모니터링하는 데 사용할 수있는 관리되는 WAN (Wide Area Networking) 서비스입니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/vpc/latest/cloudwan/cloudwan-security.html">AWS Cloud WAN security</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/new-cloud-wan-a-managed-wan-service/">New – Cloud WAN : A Managed WAN Service</a> </li>
+</ul>
+<h2 id="networking-content-delivery_1">Networking &amp; Content Delivery과 관련된 기타 유용한 링크들</h2>
+<p>준비중.</p>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

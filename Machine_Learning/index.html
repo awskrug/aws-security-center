@@ -1,0 +1,2232 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Containers/">
+      
+      
+        <link rel="next" href="../Migration_Transfer/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Machine Learning - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Machine Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-comprehend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Comprehend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deeplens" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepLens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-polly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Polly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rekognition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-transcribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Transcribe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Translate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-personalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Personalize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Forecast
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-textract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Textract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deepracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepRacer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-codeguru-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CodeGuru Reviewer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-codeguru-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CodeGuru Profiler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deep-learning-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Deep Learning AMI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deepcomposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepComposer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-elastic-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Elastic Inference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fraud-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Fraud Detector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-kendra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Kendra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-healthlake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon HealthLake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-augmented-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Augmented AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-comprehend-medical" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Comprehend Medical
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-devops-guru" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon DevOps Guru
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Equipment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Vision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-monitron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Monitron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-panorama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Panorama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-deep-learning-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Deep Learning Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-apache-mxnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Apache MXnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-learning_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Learning과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sagemaker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon SageMaker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-comprehend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Comprehend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deeplens" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepLens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lex
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-polly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Polly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rekognition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-transcribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Transcribe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Translate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-personalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Personalize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Forecast
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-textract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Textract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deepracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepRacer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-codeguru-reviewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CodeGuru Reviewer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-codeguru-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon CodeGuru Profiler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deep-learning-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Deep Learning AMI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-deepcomposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS DeepComposer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-elastic-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Elastic Inference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fraud-detector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Fraud Detector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-kendra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Kendra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-healthlake" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon HealthLake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-augmented-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Augmented AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-comprehend-medical" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Comprehend Medical
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-devops-guru" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon DevOps Guru
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Equipment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lookout-for-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Lookout for Vision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-monitron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Monitron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-panorama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Panorama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-deep-learning-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Deep Learning Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-apache-mxnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Apache MXnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-learning_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Learning과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="machine-learning">Machine Learning</h1>
+<h2 id="amazon-sagemaker"><a href="https://aws.amazon.com/ko/sagemaker/?nc2=h_m1">Amazon SageMaker</a></h2>
+<p>Amazon SageMaker는 모든 개발자와 데이터 과학자에게 기계 학습 모델을 신속하게 구축 및 학습하고 배포할 수 있는 기능을 제공합니다. Amazon SageMaker의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/security.html">Amazon SageMaker의 보안</a></li>
+<li>QuickStart - <a href="https://aws.amazon.com/quickstart/architecture/amazon-sagemaker-with-guardrails/">Amazon SageMaker with Guardrails on AWS</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/millennium-management-secure-machine-learning-using-amazon-sagemaker/">Millennium Management: Secure machine learning using Amazon SageMaker</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/infoblox-inc-built-a-patent-pending-homograph-attack-detection-model-for-dns-with-amazon-sagemaker/">Infoblox Inc. built a patent-pending homograph attack detection model for DNS with Amazon SageMaker</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/onboarding-amazon-sagemaker-studio-with-aws-sso-and-okta-universal-directory/">Onboarding Amazon SageMaker Studio with AWS SSO and Okta Universal Directory</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-connectivity-using-a-private-vpc/">Securing Amazon SageMaker Studio connectivity using a private VPC</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/securing-data-analytics-with-an-amazon-sagemaker-notebook-instance-and-kerberized-amazon-emr-cluster/">Securing data analytics with an Amazon SageMaker notebook instance and Kerberized Amazon EMR cluster</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/private-package-installation-in-amazon-sagemaker-running-in-internet-free-mode/">Private package installation in Amazon SageMaker running in internet-free mode</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/controlling-and-auditing-data-exploration-activities-with-amazon-sagemaker-studio-and-aws-lake-formation/">Controlling and auditing data exploration activities with Amazon SageMaker Studio and AWS Lake Formation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/multi-account-model-deployment-with-amazon-sagemaker-pipelines/">Multi-account model deployment with Amazon SageMaker Pipelines</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/building-secure-machine-learning-environments-with-amazon-sagemaker/">Building secure machine learning environments with Amazon SageMaker</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/secure-deployment-of-amazon-sagemaker-resources/">Secure deployment of Amazon SageMaker resources</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/7-ways-to-improve-security-of-your-machine-learning-workflows/">7 ways to improve security of your machine learning workflows</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/configuring-amazon-sagemaker-studio-for-teams-and-groups-with-complete-resource-isolation/">Configuring Amazon SageMaker Studio for teams and groups with complete resource isolation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-internet-traffic-using-aws-network-firewall/">Securing Amazon SageMaker Studio internet traffic using AWS Network Firewall</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/automate-a-centralized-deployment-of-amazon-sagemaker-studio-with-aws-service-catalog/">Automate a centralized deployment of Amazon SageMaker Studio with AWS Service Catalog</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/part-1-secure-multi-account-model-deployment-with-amazon-sagemaker/">Secure multi-account model deployment with Amazon SageMaker: Part 1</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/part-2-secure-multi-account-model-deployment-with-amazon-sagemaker/">Secure multi-account model deployment with Amazon SageMaker: Part 2</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/access-an-amazon-sagemaker-studio-notebook-from-a-corporate-network/">Access an Amazon SageMaker Studio notebook from a corporate network</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/patterns-for-multi-account-hub-and-spoke-amazon-sagemaker-model-registry/">Patterns for multi-account, hub-and-spoke Amazon SageMaker model registry</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/onboard-onelogin-sso-users-to-amazon-sagemaker-studio/">Onboard OneLogin SSO users to Amazon SageMaker Studio</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/how-imperva-expedites-ml-development-and-collaboration-via-amazon-sagemaker-notebooks/">How Imperva expedites ML development and collaboration via Amazon SageMaker notebooks</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/create-a-cross-account-machine-learning-training-and-deployment-environment-with-aws-code-pipeline/">Create a cross-account machine learning training and deployment environment with AWS Code Pipeline</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/secure-access-to-amazon-sagemaker-studio-with-aws-sso-and-a-saml-application/">Secure access to Amazon SageMaker Studio with AWS SSO and a SAML application</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/secure-amazon-s3-access-for-isolated-amazon-sagemaker-notebook-instances/">Secure Amazon S3 access for isolated Amazon SageMaker notebook instances</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/enable-amazon-sagemaker-jumpstart-for-custom-iam-execution-roles/">Enable Amazon SageMaker JumpStart for custom IAM execution roles</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/secure-aws-codeartifact-access-for-isolated-amazon-sagemaker-notebook-instances/">Secure AWS CodeArtifact access for isolated Amazon SageMaker notebook instances</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/part-1-how-natwest-group-built-a-scalable-secure-and-sustainable-mlops-platform/">Part 1: How NatWest Group built a scalable, secure, and sustainable MLOps platform</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/part-2-how-natwest-group-built-a-secure-compliant-self-service-mlops-platform-using-aws-service-catalog-and-amazon-sagemaker/">Part 2: How NatWest Group built a secure, compliant, self-service MLOps platform using AWS Service Catalog and Amazon SageMaker</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/enable-business-analysts-to-access-amazon-sagemaker-canvas-without-using-the-aws-management-console-with-aws-sso/">Enable business analysts to access Amazon SageMaker Canvas without using the AWS Management Console with AWS SSO</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/use-a-pre-signed-url-to-provide-your-business-analysts-with-secure-access-to-amazon-sagemaker-canvas/">Use a pre-signed URL to provide your business analysts with secure access to Amazon SageMaker Canvas</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/secure-amazon-sagemaker-studio-presigned-urls-part-1-foundational-infrastructure/">Secure Amazon SageMaker Studio presigned URLs Part 1: Foundational infrastructure</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/secure-amazon-sagemaker-studio-presigned-urls-part-2-private-api-with-jwt-authentication/">Secure Amazon SageMaker Studio presigned URLs Part 2: Private API with JWT authentication</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/onboard-paddleocr-with-amazon-sagemaker-projects-for-mlops-to-perform-optical-character-recognition-on-identity-documents/">Onboard PaddleOCR with Amazon SageMaker Projects for MLOps to perform optical character recognition on identity documents</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/team-and-user-management-with-amazon-sagemaker-and-aws-sso/">Team and user management with Amazon SageMaker and AWS SSO</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-jumpstart-solutions-now-support-custom-iam-role-settings/">Amazon SageMaker JumpStart solutions now support custom IAM role settings</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/use-adfs-oidc-as-the-idp-for-an-amazon-sagemaker-ground-truth-private-workforce/">Use ADFS OIDC as the IdP for an Amazon SageMaker Ground Truth private workforce</a></li>
+</ul>
+<h2 id="amazon-comprehend"><a href="https://aws.amazon.com/ko/comprehend/?nc2=h_m1">Amazon Comprehend</a></h2>
+<p>Amazon Comprehend는 기계 학습을 사용하여 텍스트 안에 있는 통찰력과 관계를 찾아내는 자연어 처리(NLP) 서비스입니다. AWS Amazon Comprehend의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/comprehend/latest/dg/comp-security.html">Security in Amazon Comprehend</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/detecting-and-redacting-pii-using-amazon-comprehend/">Detecting and redacting PII using Amazon Comprehend</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/redacting-pii-from-application-log-output-with-amazon-comprehend/">Redacting PII from application log output with Amazon Comprehend</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/enforce-vpc-rules-for-amazon-comprehend-jobs-and-cmk-encryption-for-custom-models/">Enforce VPC rules for Amazon Comprehend jobs and CMK encryption for custom models</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/enforce-vpc-rules-for-amazon-comprehend-jobs-and-cmk-encryption-for-custom-models/">Enforce VPC rules for Amazon Comprehend jobs and CMK encryption for custom models</a></li>
+</ul>
+<h2 id="aws-deeplens"><a href="https://aws.amazon.com/ko/deeplens/?nc2=h_m1">AWS DeepLens</a></h2>
+<p>AWS DeepLens는 세계 최초로 딥 러닝이 지원되는 비디오카메라로서 모든 기술 수준의 개발자가 컴퓨터 비전 자습서, 예제 코드 및 사전에 구축된 모델을 통해 기계 학습 기술을 향상할 수 있습니다. AWS DeepLens의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/deeplens/latest/dg/security.html">보안</a></li>
+</ul>
+<h2 id="amazon-lex"><a href="https://aws.amazon.com/ko/lex/?nc2=h_m1">Amazon Lex</a></h2>
+<p>Amazon Lex는 음성과 텍스트를 사용하는 애플리케이션에 대화형 인터페이스를 구축하는 서비스입니다. Amazon Lex의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lex/latest/dg/security.html">Amazon Lex의 보안</a></li>
+</ul>
+<h2 id="amazon-polly"><a href="https://aws.amazon.com/ko/polly/?nc2=h_m1">Amazon Polly</a></h2>
+<p>Amazon Polly는 고급 딥 러닝 기술을 사용하여 실제 사람의 음성처럼 소리를 합성하는 TTS(텍스트 음성 변환) 서비스입니다. Amazon Polly의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/polly/latest/dg/security.html">Amazon Polly의 보안</a></li>
+</ul>
+<h2 id="rekognition"><a href="https://aws.amazon.com/ko/rekognition/?nc2=h_m1">Rekognition</a></h2>
+<p>Amazon Rekognition은 애플리케이션에 강력한 시각 분석 기능을 쉽게 추가할 수 있게 해 주는 서비스입니다. Rekognition의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/rekognition/latest/dg/security.html">Amazon Rekognition 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/developer/authenticate-applications-through-facial-recognition-with-amazon-cognito-and-amazon-rekognition/">Authenticate applications through facial recognition with Amazon Cognito and Amazon Rekognition</a></li>
+</ul>
+<h2 id="amazon-transcribe"><a href="https://aws.amazon.com/ko/transcribe/?nc2=h_m1">Amazon Transcribe</a></h2>
+<p>AAmazon Transcribe는 개발자가 음성을 텍스트로 변환하는 기능을 애플리케이션에 쉽게 추가할 수 있게 지원하는 자동 음성 인식(ASR) 서비스입니다. Amazon Transcribe의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/transcribe/latest/dg/security.html">Amazon Transcribe의 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/introducing-pii-identification-and-redaction-in-streaming-transcriptions-using-amazon-transcribe/">Introducing PII identification and redaction in streaming transcriptions using Amazon Transcribe</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/perform-audio-redaction-for-personally-identifiable-information-with-amazon-transcribe/">How to redact personally identifiable information from audio files with Amazon Transcribe</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/introducing-pii-identification-and-redaction-in-streaming-transcriptions-using-amazon-transcribe/">Introducing PII identification and redaction in streaming transcriptions using Amazon Transcribe</a></li>
+</ul>
+<h2 id="amazon-translate"><a href="https://aws.amazon.com/ko/translate/?nc2=h_m1">Amazon Translate</a></h2>
+<p>Amazon Translate는 합리적인 가격으로 고품질의 언어 번역을 빠르게 제공하는 신경망 기계 번역 서비스입니다. Amazon Translate
+의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/translate/latest/dg/security.html">Amazon Translate의 보안</a></li>
+</ul>
+<h2 id="amazon-personalize"><a href="https://aws.amazon.com/ko/personalize/?nc2=h_m1">Amazon Personalize</a></h2>
+<p>Amazon Personalize는 개발자가 애플리케이션을 사용하는 고객에게 개별화된 추천을 손쉽게 생성할 수 있도록 하는 기계 학습 서비스입니다. Amazon Personalize의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/personalize/latest/dg/security.html">Amazon Personalize의 보안</a></li>
+</ul>
+<h2 id="amazon-forecast"><a href="https://aws.amazon.com/ko/forecast/?nc2=h_m1">Amazon Forecast</a></h2>
+<p>Amazon Forecast는 매우 정확한 예측을 위해 기계 학습을 사용하는 완전관리형 서비스입니다. Amazon Forecast의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/forecast/latest/dg/security.html">Amazon Forecast의 보안</a></li>
+</ul>
+<h2 id="amazon-textract"><a href="https://aws.amazon.com/ko/textract/?nc2=h_m1">Amazon Textract</a></h2>
+<p>Amazon Textract는 스캔한 문서에서 텍스트 및 데이터를 자동으로 추출하는 서비스입니다. Amazon Textract의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/textract/latest/dg/security.html">Amazon Textract Security</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/amazon-textract-becomes-pci-dss-certified-and-retrieves-even-more-data-from-tables-and-forms/">Amazon Textract becomes PCI DSS certified, and retrieves even more data from tables and forms</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/using-amazon-textract-with-aws-privatelink/">Using Amazon Textract with AWS PrivateLink</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/store-output-in-custom-amazon-s3-bucket-and-encrypt-using-aws-kms-for-multi-page-document-processing-with-amazon-textract/">Store output in custom Amazon S3 bucket and encrypt using AWS KMS for multi-page document processing with Amazon Textract</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/machine-learning/announcing-support-for-extracting-data-from-identity-documents-using-amazon-textract/">Announcing support for extracting data from identity documents using Amazon Textract</a></li>
+</ul>
+<h2 id="aws-deepracer"><a href="https://aws.amazon.com/ko/deepracer/?nc2=h_m1">AWS DeepRacer</a></h2>
+<p>AWS DeepRacer는 강화 학습, 3D 경주 시뮬레이터 및 글로벌 경주 리그를 사용하여 완전 자율 주행 1/18 크기의 경주용 자동차를 주행하는, 그야말로 강화 학습(RL)을 시작할 수 있는 가장 빠른 방법입니다. AWS DeepRacer의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/deepracer/latest/developerguide/deepracer-setup.html">AWS DeepRacer의 보안</a></li>
+</ul>
+<h2 id="amazon-codeguru-reviewer"><a href="https://aws.amazon.com/ko/codeguru/?nc1=h_ls">Amazon CodeGuru Reviewer</a></h2>
+<p>Amazon CodeGuru Reviewer는 개발자들이 자바코드상에서 발견하기 어려운 잠재적인 오류들을 기계학습 기반을 이용하여 탐색하는 서비스 입니다. CodeGuru Reviewer의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/codeguru/latest/reviewer-ug/security.html">Security in CodeGuru Reviewer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/codeguru-reviewer-secrets-detector-identify-hardcoded-secrets/">Amazon CodeGuru Reviewer Introduces Secrets Detector to Identify Hardcoded Secrets and Secure Them with AWS Secrets Manager</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/devops/detect-python-and-java-code-security-vulnerabilities-with-codeguru-reviewer/">Detect Python and Java code security vulnerabilities with Amazon CodeGuru Reviewer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/devops/automating-code-reviews-and-application-profiling-with-amazon-codeguru/">Automating code reviews and application profiling with Amazon CodeGuru</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/aws/new-for-amazon-codeguru-reviewer-detector-library-and-security-detectors-for-log-injection-flaws/">New for Amazon CodeGuru Reviewer – Detector Library and Security Detectors for Log-Injection Flaws</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/devops/detecting-security-issues-in-logging-with-amazon-codeguru-reviewer/">Detecting security issues in logging with Amazon CodeGuru Reviewer</a></li>
+</ul>
+<h2 id="amazon-codeguru-profiler"><a href="https://aws.amazon.com/ko/codeguru/?nc1=h_ls">Amazon CodeGuru Profiler</a></h2>
+<p>Amazon CodeGuru Profiler는 런타임 성능 데이터를 수집하여 애플리케이션의 성능 최적화를 하는데 도움을 줄수 있는 제안을 제공하는 서비스입니다. CodeGuru Profiler의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/codeguru/latest/profiler-ug/security.html">Security in Amazon CodeGuru Profiler</a></li>
+</ul>
+<h2 id="aws-deep-learning-ami"><a href="https://aws.amazon.com/ko/machine-learning/amis/">AWS Deep Learning AMI</a></h2>
+<p>AWS Deep Learning AMI는 기계 학습 담당자 및 연구원에게 규모와 관계없이 클라우드에서 딥 러닝을 가속화할 수 있는 인프라 및 도구를 제공합니다. Deep Learning AMI의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/dlami/latest/devguide/security.html">AWS Deep Learning AMI의 보안</a></li>
+</ul>
+<h2 id="aws-deepcomposer"><a href="https://aws.amazon.com/ko/deepcomposer/?nc1=h_ls">AWS DeepComposer</a></h2>
+<p>AWS DeepComposer gives developers a creative way to get started with machine learning. DeepComposer의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/deepcomposer/latest/devguide/security.html">Security in AWS DeepComposer</a></li>
+</ul>
+<h2 id="amazon-elastic-inference"><a href="https://aws.amazon.com/ko/machine-learning/elastic-inference/">Amazon Elastic Inference</a></h2>
+<p>Amazon Elastic Inference를 이용하면 Amazon EC2 및 Amazon SageMaker 인스턴스 또는 Amazon ECS 작업에 낮은 비용의 GPU 지원 가속을 연결해 딥 러닝 추론 비용을 최대 75% 절감할 수 있습니다. Elastic Inference의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/elastic-inference/latest/developerguide/security.html">Security in Amazon Elastic Inference</a></li>
+</ul>
+<h2 id="amazon-fraud-detector"><a href="https://aws.amazon.com/ko/fraud-detector/?nc1=h_ls">Amazon Fraud Detector</a></h2>
+<p>Amazon Fraud Detector는 온라인 지룹 시스템이나 가짜 계정 생성 같은 온라인 사기 행위들을 쉽게 식별할 수 있도록 해주는 완전 관리형 서비스입니다. Fraud Detector의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/frauddetector/latest/ug/security.html">Security in Amazon Fraud Detector</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/manage-your-amazon-fraud-detector-resources-in-an-automated-and-secure-manner-using-aws-cloudformation/">Manage your Amazon Fraud Detector resources in an automated and secure manner using AWS CloudFormation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/prevent-fake-account-sign-ups-in-real-time-with-ai-using-amazon-fraud-detector/">Prevent fake account sign-ups in real time with AI using Amazon Fraud Detector</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/startups/icony-detecting-and-handling-fake-accounts-with-amazon-fraud-detector/">ICONY: Detecting and Handling Fake Accounts with Amazon Fraud Detector</a></li>
+</ul>
+<h2 id="amazon-kendra"><a href="https://aws.amazon.com/ko/kendra/?nc1=h_ls">Amazon Kendra</a></h2>
+<p>Amazon Kendra is a highly accurate and easy to use enterprise search service that’s powered by machine learning. Amazon Kendra의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/kendra/latest/dg/security.html">Security in Amazon Kendra</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/building-a-secure-search-application-with-access-controls-using-amazon-kendra/">Building a secure search application with access controls using Amazon Kendra</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/simplify-secure-search-solutions-with-the-new-principal-store-for-secure-search-in-amazon-kendra/">Simplify secure search solutions with Amazon Kendra’s Principal Store</a></li>
+</ul>
+<h2 id="amazon-healthlake"><a href="https://aws.amazon.com/ko/healthlake/">Amazon HealthLake</a></h2>
+<p>Amazon HealthLake is a HIPAA-eligible service that healthcare providers, health insurance companies, and pharmaceutical companies can use to store, transform, query, and analyze large-scale health data. Amazon HealthLake의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/healthlake/latest/devguide/healthlake-security.html">Security in Amazon HealthLake</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/korea/new-amazon-healthlake-to-store-transform-and-analyze-petabytes-of-health-and-life-sciences-data-in-the-cloud/">Amazon HealthLake – 클라우드 기반 의료 데이터 저장, 변환 및 분석 서비스 제공</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/how-medhost-is-migrating-electronic-health-record-data-to-aws-for-compliance-and-gaining-valuable-insights/">How MEDHOST is migrating electronic health record data to AWS for compliance and gaining valuable insights</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/machine-learning/unlock-patient-data-insights-using-amazon-healthlake/">Unlock patient data insights using Amazon HealthLake</a> </li>
+</ul>
+<h2 id="amazon-augmented-ai"><a href="https://aws.amazon.com/ko/augmented-ai/">Amazon Augmented AI</a></h2>
+<p>Amazon Augmented AI는 인적 검토에 필요한 워크플로를 쉽게 구축할 수 있는 기계 학습 서비스입니다. Augmented AI의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/sagemaker/latest/dg/a2i-permissions-security.html">Amazon Augmented AI의 권한 및 보안</a></li>
+</ul>
+<h2 id="amazon-comprehend-medical"><a href="https://docs.aws.amazon.com/ko_kr/comprehend-medical/latest/dev/comprehendmedical-welcome.html">Amazon Comprehend Medical</a></h2>
+<p>Amazon Comprehend Medical은 의사 기록, 퇴원 요약, 검사 결과 및 사례 기록과 같은 구조화되지 않은 임상 텍스트에서 유용한 정보를 감지하고 반환합니다. Amazon Comprehend Medical은 자연어 처리(NLP) 모델을 사용하여 의학적 상태, 약물 또는 PHI(Protected Health Information)와 같은 의료 정보에 대한 텍스트 참조인 엔터티를 감지합니다. Amazon Comprehend Medical의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/comprehend-medical/latest/dev/comprehendmedical-security.html">Amazon Comprehend Medical 보안</a></li>
+</ul>
+<h2 id="amazon-devops-guru"><a href="https://aws.amazon.com/ko/devops-guru/">Amazon DevOps Guru</a></h2>
+<p>Amazon DevOps Guru는 기계 학습(ML) 기반 서비스로서 애플리케이션의 운영 성능 및 가용성을 쉽게 개선하도록 설계되었습니다. DevOps Guru는 정상적인 운영 패턴에서 벗어나는 동작의 탐지를 도와 고객에게 영향을 미치기 훨씬 전에 운영 문제를 확인할 수 있습니다. Amazon DevOps Guru의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/devops-guru/latest/userguide/security.html">Amazon DevOps Guru 보안</a></li>
+</ul>
+<h2 id="amazon-lookout-for-equipment"><a href="https://aws.amazon.com/ko/lookout-for-equipment/">Amazon Lookout for Equipment</a></h2>
+<p>Amazon Lookout for Equipment는 장비에 장착된 센서의 데이터(예: 발전기 압력, 압축기의 유량, 분당 팬 회전 수)를 분석하여 기계 학습에 관한 전문 지식이 없어도 데이터만을 기반으로 하여 장비를 위해 기계 학습 모델을 자동으로 훈련할 수 있습니다. Amazon Lookout for Equipment의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lookout-for-equipment/latest/ug/security.html">Security in Amazon Lookout for Equipment</a></li>
+</ul>
+<h2 id="amazon-lookout-for-metrics"><a href="https://aws.amazon.com/ko/lookout-for-metrics/">Amazon Lookout for Metrics</a></h2>
+<p>Amazon Lookout for Metrics는 기계 학습(ML)을 사용하여 영업 수익 또는 고객 유치율의 급격한 하락과 같은 비즈니스 및 운영 데이터의 이상(즉, 기준의 아웃라이어)을 자동으로 탐지하고 진단합니다. Amazon Lookout for Metrics의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lookoutmetrics/latest/dev/lookoutmetrics-security.html">Security in Amazon Lookout for Metrics</a></li>
+</ul>
+<h2 id="amazon-lookout-for-vision"><a href="https://aws.amazon.com/ko/lookout-for-vision/">Amazon Lookout for Vision</a></h2>
+<p>Amazon Lookout for Vision을 사용하면 산업 제품의 시각적 결함을 정확하고 대규모로 찾을 수 있습니다. Amazon Lookout for Vision의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lookout-for-vision/latest/developer-guide/security.html">Amazon Lookout for Vision Vision의 보안</a></li>
+</ul>
+<h2 id="amazon-monitron"><a href="https://aws.amazon.com/ko/monitron/">Amazon Monitron</a></h2>
+<p>기계 학습을 사용하여 산업 장비의 비정상적인 상태를 감지하는 엔드 투 엔드 시스템인 Amazon Monitron으로 예측 유지 관리를 구현할 수 있습니다. Amazon Monitron의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/Monitron/latest/admin-guide/security.html">Security in Amazon Monitron</a></li>
+</ul>
+<h2 id="amazon-panorama"><a href="https://aws.amazon.com/ko/panorama/">Amazon Panorama</a></h2>
+<p>AWS Panorama는 기계 학습(ML) 디바이스 모음이자, 컴퓨터 비전(CV)을 온프레미스 인터넷 프로토콜(IP) 카메라로 가져오는 소프트웨어 개발 키트(SDK)입니다.  Amazon Panorama의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/panorama/latest/dev/panorama-security.html">AWS Panorama의 보안</a></li>
+</ul>
+<h2 id="amazon-deep-learning-containers"><a href="https://aws.amazon.com/ko/machine-learning/containers/">Amazon Deep Learning Containers</a></h2>
+<p>AWS Deep Learning Containers(AWS DL Containers)는 딥 러닝 프레임워크가 사전에 설치된 Docker 이미지로서, 처음부터 환경을 구축하고 최적화하는 복잡한 프로세스를 건너뜀으로써 사용자 지정 기계 학습(ML) 환경을 신속하게 배포할 수 있도록 지원합니다. Amazon HealthLake의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/deep-learning-containers/latest/devguide/security.html">Security in AWS Deep Learning Containers</a></li>
+</ul>
+<h2 id="amazon-apache-mxnet"><a href="https://aws.amazon.com/ko/mxnet/">Amazon Apache MXnet</a></h2>
+<p>Apache MXNet은 빠르고 확장 가능한 교육 및 추론 프레임워크로서 기계 학습을 위해 사용이 쉽고 간단한 API가 제공됩니다. Amazon Apache MXnet의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/mxnet/latest/dg/whatis.html">What Is Apache MXNet?</a></li>
+</ul>
+<h2 id="machine-learning_1">Machine Learning과 관련된 기타 유용한 링크들</h2>
+<ul>
+<li>Ext. Blog - <a href="https://github.com/mitre/advmlthreatmatrix">Adversarial ML Threat Matrix - Table of Contents</a></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

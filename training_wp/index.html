@@ -1,0 +1,1769 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../infra/">
+      
+      
+        <link rel="next" href="../hands_on_labs/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>교육 및 백서 - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              교육 및 백서
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management_Governance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security 교육과정 안내
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 모범사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 블로그
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 및 규정준수 백서
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS 보안 및 규정준수 백서">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      보안 백서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      규정 및 컴플라이언스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Security 교육과정 안내
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 모범사례
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 블로그
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS 보안 및 규정준수 백서
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS 보안 및 규정준수 백서">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      보안 백서
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      규정 및 컴플라이언스
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="aws">AWS 보안 관련 교육, 블로그, 백서</h1>
+<p>AWS 보안 및 규정 준수와 관련된 교육과정, 보안 블로그, 보안 백서 등의 정보는 다음과 같습니다. </p>
+<h2 id="aws-security">AWS Security 교육과정 안내</h2>
+<p>AWS Security에 대한 온/오프라인 교육과정들입니다.</p>
+<ul>
+<li><a href="https://aws.amazon.com/training/path-security/">AWS Security Learning Path</a> <em>- 온/오프라인 교육과정 안내</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=65258">Getting Started with AWS Security, Identity, and Compliance (Korean) (3 hours)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=67680">AWS Shared Responsibility Model (Korean) (5 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=32450">AWS Cloud Practitioner Essentials (Second Edition): AWS Security (Korean) (50 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16448">Introduction to AWS Identity and Access Management (10 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=65265">Authentication and Authorization with AWS Identity and Access Management (Korean) (15 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=15877">Introduction to AWS Security Token Services (STS) (20 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16379">Introduction to Amazon Cloud Directory (10 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16455">Introduction to Amazon Macie (10 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16482">Introduction to Data Encryption (5 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=15872">Introduction to AWS Artifact (10 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=15879">Introduction to Amazon Inspector (15 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16451">Introduction to AWS Organizations (10 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=54775">Introduction to Amazon Certificate Manager Private Certificate Authority (15 minutes)</a> <em>– Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16487">Protecting Your Instance with Security Groups (Korean) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=54774">Differences Between Security Groups and NACLs (Korean) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=54776">Understanding Amazon EBS Volume Encryption (Korean) (2 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=67681">Deep Dive on Container Security (Korean) (30 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=26842">Using a Token-based Approach to Build Highly Secure, Stateless, and Decoupled Applications (30 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=65784">Introduction to AWS CloudTrail (Korean) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16390">Introduction to Amazon CloudWatch (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16391">Introduction to Amazon CloudWatch Logs (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=27171">Introduction to Amazon CloudWatch Logs Insights (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16497">Introduction to AWS Service Catalog (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=16377">Introduction to AWS Trusted Advisor (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=65260">Introduction to AWS Config (Korean) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=65775">Introduction to AWS CloudFormation (Korean) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/learningobject/video?id=15884">Introduction to Amazon Virtual Private Cloud (VPC) (10 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=27496">Protect Your Web-facing Workloads with AWS Security Services (40 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Curriculum?id=11048">AWS Security Fundamentals (Korean) (4 hours)</a> <em>– Online, 무료</em></li>
+<li><a href="https://aws.amazon.com/ko/training/course-descriptions/security-operations/?nc1=h_ls">Security Operations on AWS (3 days)</a> <em>– Offline, Instructor-led, 유료</em></li>
+<li><a href="https://www.coursera.org/learn/aws-fundamentals-addressing-security-risk">AWS Fundamentals: Addressing Security Risk(4주간 진행, 전체 18시간 소요</a> <em>- OnLine, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=34786">Exam Readiness: AWS Certified Security - Specialty (2 Hrs)</a> <em>- OnLine, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=49725">Configure and Deploy AWS Client VPN (30 minutes)</a> <em>- OnLine, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=54077">Configure and Deploy Amazon PrivateLink (60 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Curriculum?id=54770">Machine Learning Security (Korean, 150 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=55148">AWS Identity and Access Management - Architecture and Terminology (15 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=54606">AWS Identity and Access Management - Basics (15 minutes)</a> <em>- Online, 무료</em> </li>
+<li><a href="https://www.aws.training/Details/Video?id=67679">AWS Foundations: Securing Your AWS Cloud (Korean) (50 minutes)</a> <em>- Online, 무료</em> </li>
+<li><a href="https://www.aws.training/Details/Curriculum?id=43468">AWS IoT Security Series (10 hours)</a> <em>- Online, 무료</em> </li>
+<li><a href="https://www.aws.training/Details/Curriculum?id=42335">Deep Dive into AWS IoT Authentication and Authorization (4 hours)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Curriculum?id=42108">AWS IoT Device Defender Primer (3 hours)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=41556">Cloud Audit Academy (3 hours)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=37283">CQ: The AWS Certification Quiz Show | Sydney Summit E04 (15 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=37284">CQ: The AWS Certification Quiz Show | Sydney Summit E05 (15 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=37293">CQ: The AWS Certification Quiz Show | Episode 06 (30 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/Video?id=27498">AWS Lambda Function Security &amp; Defense in Depth (20 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=53780">Deep Dive with Security: AWS Identity and Access Management (IAM)(8 hours)</a> <em>- OnLine, 유료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=73961">Improve Code Quality with Amazon CodeGuru Reviewer(1 Hour)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=78563">Amazon Simple Storage Service (Amazon S3) Business Continuity and Disaster Recovery(50 minutes)</a> <em>- Online, 무료</em></li>
+<li><a href="https://www.aws.training/Details/eLearning?id=79259">Security Governance at Scale – Technical(4 hours)</a> <em>- OnLine, 무료</em></li>
+<li><a href="https://learnsecurity.amazon.com/training/story.html">Cybersecurity Awareness program</a> <em>- Online, 무료</em></li>
+<li><a href="https://aws.amazon.com/ko/compliance/auditor-learning-path/">Cloud Audit Academy(3 Hrs)</a> <em>- Online, 무료</em></li>
+</ul>
+<h2 id="aws_1">AWS 보안 모범사례</h2>
+<ul>
+<li><a href="https://aws.amazon.com/ko/architecture/security-identity-compliance/">Best Practices for Security, Identity, &amp; Compliance</a>
+AWS Well-Architected Framework - Security Pillar에 의거하여 고객분들이 참조할 수 있는 보안 모범사례와 관련된 다양한 컨텐츠, 동영상, 레퍼런스 아키텍쳐, 솔루션, 디자인 패턴, 블로그들을 소개하고 있는 사이트입니다.</li>
+</ul>
+<p><img alt="Screenshot" src="../img/Best_practices.png" /></p>
+<h2 id="aws_2">AWS 보안 블로그</h2>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/security/">AWS 보안 블로그</a> <em>- AWS보안 서비스들의 최신 기능에 대한 소개, 신규 보안 백서, 보안 파트너 제품들과의 연동 등 다양한 주제로 고객들이 AWS를 보다 안전하게 이용할 수 있는 정보들을 제공하고 있습니다.</em></li>
+</ul>
+<h2 id="aws_3">AWS 보안 및 규정준수 백서</h2>
+<p>클라우드 보안 및 규정 준수 관련 AWS가 제공하는 백서 및 외부 백서 목록입니다.</p>
+<h3 id="_1">보안 백서</h3>
+<ul>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/introduction-aws-security/welcome.html">Introduction to AWS Security</a> <em>-2021년 11월 11일</em></li>
+<li>영문 – <a href="https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/wellarchitected-security-pillar.pdf">AWS Well Architected Framework Security Pillar</a> <em>-2020년 7월</em></li>
+<li>한글 – <a href="https://d0.awsstatic.com/International/ko_KR/whitepapers/Compliance/AWS_Security_at_Scale_Logging_in_AWS_Whitepaper.pdf">대규모 보안: AWS에서 로깅하기</a> <em>- 2015년 10월</em></li>
+<li>한글 – <a href="http://d0.awsstatic.com/International/ko_KR/whitepapers/Compliance/AWS_Security_at_Scale_Governance_in_AWS_Whitepaper.pdf">대규모 보안: AWS기반 거버넌스</a> <em>- 2015년 10월</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/aws-technical-content/latest/aws-governance-at-scale/introduction.html">AWS Governance at Scale</a> <em>- 2018년 11월</em></li>
+<li>한글 – <a href="https://d1.awsstatic.com/whitepapers/Security/KO_Whitepapers/AWS_Security_Best_Practices_KO.pdf">AWS 보안 모범 사례</a> <em>- 2016년 8월</em></li>
+<li>한글 – <a href="http://d0.awsstatic.com/International/ko_KR/whitepapers/Compliance/Intro_to_Security_by_Design.pdf">AWS Security by Design 소개</a> <em>- 2015년 10월</em></li>
+<li>영문 – <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-overview-security-processes/aws-overview-security-processes.pdf">Amazon Web Services: Overview of SecurityProcesses</a> <em>- 2020년 3월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Security_Analytics_Mobile_Services_Applications_Whitepaper.pdf">Overview of AWS Security - Analytics, Mobile, and Application Services</a> <em>- 2016년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Security_Application_Services_Whitepaper.pdf">Overview of AWS Security - Application Services</a> <em>- 2016년 6월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Security_Compute_Services_Whitepaper.pdf">Overview of AWS Security - Compute Services</a> <em>- 2016년 6월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Security_Database_Services_Whitepaper.pdf">Overview of AWS Security - Database Services</a> <em>- 2016년 6월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Networking_Security_Whitepaper.pdf">Overview of AWS Security - Network Services</a> <em>- 2016년 8월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Security_Storage_Services_Whitepaper.pdf">Overview of AWS Security - Storage Services</a> <em>- 2016년 6월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/AWS_Governance_at_Scale.pdf">AWS Governance at Scale</a> <em>- 2018년 11월</em></li>
+<li>영문 – <a href="https://www.cisecurity.org/benchmark/amazon_web_services/">CIS AWS Foundation</a> <em>- v.1.2, 2018년 5월</em></li>
+<li>영문 – <a href="https://d0.awsstatic.com/whitepapers/compliance/CIS_Amazon_Web_Services_Three-tier_Web_Architecture_Benchmark.pdf">CIS Amazon Web Services Three-tier Web</a> <em>- v.1.0, 2016년 11월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Logical_Separation_Handbook.pdf">Logical Separation on AWS</a> <em>- 2020년 7월</em></li>
+<li>한글 – <a href="https://d0.awsstatic.com/International/ko_KR/whitepapers/DDoS_White_Paper.pdf">디도스 대응을 위한 AWS 모범사례</a> <em>- 2016년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf">AWS Best Practices for DDoS Resiliency</a> <em>- 2021년 9월 21일, 상기 한글버전의 최신 영문판</em></li>
+<li>한글 – <a href="https://d2908q01vomqb2.cloudfront.net/7b52009b64fd0a2a49e6d8a939753077792b0554/2017/08/15/aws-waf-owasp-ko.pdf">AWS WAF를 활용한 OWASP Top10 웹 애플리케이션 취약점 보완 방법</a> <em>- 2017년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/aws-building-ami-factory-process-using-ec2-ssm-marketplace-and-service-catalog.pdf">Building a Secure, Approved AMI Factory Process Using Amazon EC2 Systems Manager (SSM), AWS Marketplace, and AWS Service Catalog</a> <em>- 2017년 11월</em></li>
+<li>영문 - <a href="http://d0.awsstatic.com/whitepapers/aws-whitepaper-single-sign-on-integrating-aws-open-ldap-and-shibboleth.pdf">Single Sign-On: Integrating AWS, OpenLDAP, and Shibboleth</a> <em>- 2015년 4월</em></li>
+<li>한글 - <a href="https://d0.awsstatic.com/International/ko_KR/whitepapers/Compliance/AWS_Securing_Data_at_Rest_with_Encryption.pdf">저장 데이터 암호화</a> <em>- 2014년 11월</em></li>
+<li>영문 - <a href="https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf">AWS Key Management Service Best Practices</a> <em>- 2017년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/security-of-aws-cloudhsm-backups.pdf">Security of AWS CloudHSM backups</a> <em>- 2020년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Secure_content_delivery_with_CloudFront_whitepaper.pdf">Secure Content Delivery with CloudFront</a> <em>- 2016년 11월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Overview-AWS-Lambda-Security.pdf">Security Overview of AWS Lambda</a> <em>- 2019년 3월</em> Archived</li>
+<li>영문 - <a href="https://www.puresec.io/blog/the-12-most-critical-risks-for-serverless-applications-2019-guide">The 12 Most Critical Risks for Serverless Applications 2019 Guide</a> <em>- PureSec과 CSA가 공동으로 제작한 서버리스 환경의 보안 리스크 관련 백서</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/Securing_IoT_with_AWS.pdf">Securing Internet of Things(IoT) with AWS</a> <em>- 2019년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/aws_security_incident_response.pdf">AWS Security Incidence Response Guide</a> <em>- 2020년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/aws-privatelink.pdf">Securely Access Services Over AWS PrivateLink</a> _- 2021년 6월_3일</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/aws-microsoft-platform-security.pdf">Securing the Microsoft Platform on Amazon Web Services</a> <em>- 2019년 8월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/adds-on-aws.pdf">Active Directory Domain Services on AWS</a> <em>- 2020년 11월</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/efs-encrypted-file-systems/efs-encrypted-file-systems.html">Encrypting File Data with Amazon Elastic File System</a> <em>- 2021년 2월 22일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/aws-amazon-vpc-connectivity-options.pdf">Amazon Virtual Private Cloud Connectivity Options</a> <em>- 2018년 1월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/building-a-scalable-and-secure-multi-vpc-aws-network-infrastructure.pdf">Building a Scalable and Secure Multi-VPC AWS Network Infrastructure</a> <em>- 2020년 6월</em></li>
+<li>영문 - <a href="https://media.defense.gov/2020/Jan/22/2002237484/-1/-1/0/CSI-MITIGATING-CLOUD-VULNERABILITIES_20200121.PDF">NSA - Mitigating Cloud Vulnerabilities</a> 
+<em>- 2020년 1월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/guidelines-implementing-aws-waf.pdf">Guidelines for Implementing AWS WAF</a> <em>- 2020년 5월</em></li>
+<li>외부논문 - <a href="https://arxiv.org/pdf/2005.09535.pdf">Backstabber’s Knife Collection: A Review of Open Source Software Supply Chain Attacks</a> <em>- 2020년 5월, 174개의 악성 SW 패키지들에 대한 조사</em></li>
+<li>외부논문 - <a href="https://www.liubaojun.org/uploads/1/1/8/3/118316462/dsn_2020.pdf">CDN Backfired: Amplification Attacks Based on HTTP Range Requests</a></li>
+<li>외부백서 - <a href="https://summitroute.com/downloads/aws_security_maturity_roadmap-Summit_Route.pdf">AWS Security Maturity Roadmap</a> <em>- 2020년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/security-of-aws-cloudhsm-backups.pdf">Security of AWS CloudHSMBackups</a> <em>- 2021년 3월 24일</em></li>
+<li>영문 - <a href="http://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Docs/CloudHSMUpgradeGuide-latest.pdf">Migrating to AWS CloudHSM</a> <em>- 2019년 2월</em></li>
+<li>영문 - <a href="https://aws-shield-tlr.s3.amazonaws.com/2020-Q1_AWS_Shield_TLR.pdf">AWS Shield Threat Landscape Report –Q1.2020</a> <em>- 2020년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/open-banking-on-aws.pdf">Open Banking on AWS</a> <em>- 2019년</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/dod-scca-multiaccount-ra.pdf">Reference Architecture - Secure Cloud Computing Architecture (SCCA) on AWS GovCloud</a> <em>- 2020년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Checklist.pdf?did=wp_card&amp;trk=wp_card">AWS Security Checklist</a> <em>- 2020년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/certifications/foregenix_amazon_guardduty_security_review_07-2020.pdf">OREGENIX - Amazon GuardDuty Security Review</a> <em>- 2020년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/WWPS/pdf/AWSPS_ransomware_ebook_Apr-2020.pdf">Securing your  AWS Cloud environment from ransomware</a> <em>- 2020년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/lab-instruments-log-analytics-ra.pdf">Lab instrument log acquisition and analytics</a> <em>- 2020년 11월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/api-gateway-security.pdf">Security Overview of Amazon API Gateway</a> <em>- 2020년 11월</em></li>
+<li>외부 백서 영문 - <a href="https://github.com/kubernetes/community/blob/master/sig-security/security-audit-2019/findings/Kubernetes%20White%20Paper.pdf">Kubernetes Security White Papaer</a> <em>- 2019년 6월 17일</em></li>
+<li>영문 - <a href="https://docs-aws.amazon.com/whitepapers/latest/access-workspaces-with-access-cards/access-workspaces-with-access-cards.html">Access Amazon WorkSpaces with Common Access Cards</a> <em>- 2021년 3월 8일</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/classic-intrusion-analysis-frameworks-for-aws-environments/classic-intrusion-analysis-frameworks-for-aws-environments.html">Classic Intrusion Analysis Frameworks for AWS Environments: Application and Enhancement</a> <em>- 2021년 3월 31일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/carrier-grade-mobile-packet-core-network-on-aws.pdf">Carrier-Grade Mobile Packet Core Network on AWS</a> <em>- 2021년 3월 11일</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html">AWS Security Reference Architecture (AWS SRA) - AWS Prescriptive Guidance</a> <em>- 2021년 6월</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html">Organizing Your AWS Environment Using Multiple Accounts</a> <em>- 2022년 7월 26일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/building_an_aws_perimeter.pdf">Building an AWS Perimeter</a> <em>- 2021년 9월 8일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/ransomware-risk-management-on-aws-using-csf.pdf">Ransomware Risk Management on AWS Using the NIST Cyber Security Framework (CSF)</a> <em>- 2021년 8월 30일</em></li>
+<li>영문 - <a href="https://aws.amazon.com/ko/blogs/security/introducing-the-security-at-the-edge-core-principles-whitepaper/">Introducing the Security at the Edge: Core Principles whitepaper</a></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html">An Overview of the AWS Cloud Adoption Framework</a> <em>- 2021년 11월 22일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/security-bp-for-manufacturing-ot.pdf">Security Best Practices for Manufacturing OT</a> <em>- 2021년 5월 20일</em></li>
+<li>영문(외부) - <a href="https://www2.deloitte.com/content/dam/Deloitte/us/Documents/risk/us-risk-aws-ransomware-resiliency-whitepaper.pdf">Ransomware resilience on Amazon Web Services: Balancing security and recovery strategies</a> <em>- 2022년 7월</em></li>
+</ul>
+<h3 id="_2">규정 및 컴플라이언스</h3>
+<ul>
+<li>한글 – <a href="http://d0.awsstatic.com/International/ko_KR/whitepapers/Compliance/AWS_Auditing_Security_Checklist.pdf">AWS 사용 감사에 대한 소개</a> <em>- 2015년 10월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf">AWS 규정 준수 빠른 참조 안내서</a> <em>- 2021년</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference_Education.pdf">AWS 규정 준수 빠른 참조 안내서: 교육 버전</a> <em>- 2018년 3월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Risk_and_Compliance_Overview.pdf">AWS 위험 및 규정 준수 개요</a> <em>- 2017년 1월</em> Archived</li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/welcome.html">Amazon Web Services: Risk and Compliance</a> <em>- 2021년 3월 11일</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/International/ko_KR/whitepapers/AWS_Risk_Compliance_Whitepaper_Aug_2015.pdf">AWS 위험 및 규정 준수</a> <em>- 2015년 8월,(상기 영문버전의 이전 버전 번역본)</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Automating_Governance_on_AWS.pdf">Automating Governance on AWS</a> <em>- 2015년 8월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Answers_to_Key_Compliance_Questions.pdf">AWS Answers to Key Compliance Questions</a> <em>-2017년 1월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Certifications_Programs_Reports_Third-Party_Attestations.pdf">AWS Certifications, Programs, Reports, and Third-Party Attestations</a> <em>- 2017년 3월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Data_Residency_Whitepaper.pdf">Data Residency - AWS Policy Perspectives</a> <em>- 2020년 8월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Data_Residency_Executive_Summary.pdf">Executive Summary Data Residency - AWS Policy Perspectives</a> <em>- 2018년 2월, 상기 백서의 요약본</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/whitepapers/compliance/KO_Whitepapers/Using_AWS_in_the_context_of_Common_Privacy_and_Data_Protection_Considerations_KO.pdf">개인정보 취급 및 데이터 보호의 공통 고려사항 맥락에서의 AWS 사용</a> <em>- 2018년 5월, AWS를 사용하여 개인정보가 포함된 콘텐츠를 저장하거나 처리하려고 할때 개인정보 취급 및 데이터 보호에 관한 공통적인 고려사항을 제공</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Australian_Privacy_Considerations.pdf">Using AWS in the Context of Australian Privacy Considerations</a> <em>- 2020년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Hong_Kong_Privacy_Considerations.pdf">Using AWS in the Context of Hong Kong Privacy Considerations</a> <em>- 2018년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Malaysian_Privacy_Considerations.pdf">Using AWS in the Context of Malaysian Privacy Considerations</a> <em>- 2018년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Japanese_Privacy_Considerations.pdf">Using AWS in the Context of Japan Privacy Considerations</a> <em>- 2018년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_New_Zealand_Privacy_Considerations.pdf">Using AWS in the Context of New Zealand Privacy Considerations</a> <em>- 2021년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Singapore_Privacy_Considerations.pdf">Using AWS in the Context of Singapore Privacy Considerations</a> <em>- 2018년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_context_of_Philippines_Privacy_Considerations.pdf">Using AWS in the Context of Philippines Privacy Considerations</a> <em>- 2018년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_the_Context_of_South_African_Privacy_Considerations.pdf">Using AWS in the Context of South African Privacy Considerations</a> <em>- 2019년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Auditing_Security_Checklist.pdf">Introduction to Auditing the Use of AWS</a> <em>- 2015년 10월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Regulation_Systems_Compliance_and_Integrity_Considerations.pdf">Regulation Systems Compliance and Integrity Considerations for the AWS Cloud</a> <em>- 2017년 11월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Data_Classification.pdf">Data Classification - Secure Cloud Adoption</a> <em>- 2018년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/CSA_Consensus_Assessments_Initiative_Questionnaire.pdf">CSA Consensus Assessments Initiative Questionnaire</a> <em>- 2017년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/NIST_Cybersecurity_Framework_CSF.pdf">NIST Cybersecurity Framework (CSF)</a> <em>- 2019년 1월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Response_to_CACP_Information_Storage_Requirements.pdf">AWS Response to CACP Information and Communication Technology Sub-Committee</a> <em>- 2017년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Guidance_for_Trusted_Internet_Connection_TIC_Readiness_on_AWS.pdf">Guidance for Trusted Internet Connection (TIC) Readiness on AWS</a> <em>- 2016년 2월</em></li>
+<li>영문 - <a href="https://d0.awsstatic.com/whitepapers/compliance/AWS_Secure_Network_Connections.pdf">Secure Network Connections : An evaluation of the US Trusted Internet Connection (TIC) Program</a> <em>- 2017년 8월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Alignment_with_Motion_Picture_of_America_Association_Application_and_Cloud.pdf">MPAA Content Security : Model</a> <em>- 2015년 3월</em></li>
+<li>영문 - <a href="https://d0.awsstatic.com/whitepapers/compliance/AWS_MPAA_2015_New_Best_Practices.pdf">MPAA Content Security : Best Practices</a> <em>- 2015년 4월</em></li>
+<li>영문 - <a href="https://docs.aws.amazon.com/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/welcome.html">Architecting for HIPAA Security and Compliance on Amazon Web Services</a> <em>- 2021년 12월 6일</em></li>
+<li>영문 - <a href="https://d0.awsstatic.com/whitepapers/compliance/AWS_dBGaP_Genomics_on_AWS_Best_Practices.pdf">Architecting for Genomic Data Security and Compliance in AWS</a> <em>- 2014년 12월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf">Considerations for Using AWS Products in GxP Systems</a> <em>- 2016년 1월</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/whitepapers/compliance/KO_Whitepapers/Using_AWS_in_GxP_Systems_KO.pdf">GxP 시스템에 따른 AWS 제품 사용지침</a> <em>- 2016년 1월, 상기 백서의 한글 번역본</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Using_AWS_in_GxP_Systems.pdf">GxP Systems on AWS</a> <em>- 2021년 3월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/gxp_compliance_automation_ra.pdf">GxP Compliance Automation</a> <em>- 2019년 11월, Reference Architecture</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Operational_Resilience.pdf">Amazon Web Services’ Approach to Operational Resilience in the Financial Sector &amp; Beyond</a> <em>- 2021년 4월, 금융권의 신속한 서비스 복원 요건에 대해 AWS 환경에서의 가이드를 제공하는 백서</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/FFIEC_Audit_Guide.pdf">Federal Financial Institutions Examination Council (FFIEC) Audit Guide</a> <em>- 2015년 10월</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/International/ko_KR/whitepapers/Compliance/AWS_Coalfire_FFIEC_Audit_Compliance_Workbook.pdf">Amazon Web Services에 대한 FFIEC 규정 준수</a> <em>- 2015년 3월, 상기 백서의 한글 번역본</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_SEC_Cybersecurity_Guide.pdf">U.S. Securities and Exchange Commission’s (SEC) Office of Compliance Inspections and Examinations (OCIE) Cybersecurity Initiative Audit Guide</a> <em>- 2015년 10월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/hong-kong-insurance-authority-financial-regulations-guidelines.pdf">AWS User Guide to Financial Services Regulations &amp; Guidelines in Hong Kong - Insurance Authority</a> <em>- 2017년 10월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/hong-kong-insurance-authority-financial-regulations-guidelines.pdf">AWS User Guide to the Hong Kong Insurance Authority on Outsourcing and Use of Internet for Insurance Activities Guidelines</a> <em>- 2020년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/HKMA_User_Guide.pdf">AWS User Guide to the Hong Kong Monetary Authority on Outsourcing and General Principles for Technology Risk Management Supervisory Policy Manuals</a> <em>- 2020년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/HKMA_User_Guide.pdf">AWS User Guide to Financial Services Regulations &amp; Guidelines in Hong Kong - Monetary Authority</a> <em>- 2020년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Financial_Services_Regulations_Guidelines_in_Singapore.pdf">AWS User Guide to Financial Services Regulations &amp; Guidelines in Singapore</a> <em>- 2019년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_User_Guide_for_Financial_Services_in_the_United_States.pdf">AWS User Guide for U.S. Financial Institutions</a> <em>- 2018년 10월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_User_Guide_to_Financial_Services_Regulations_and_Guidelines_in_Australia.pdf">AWS User Guide to Financial Services Regulations &amp; Guidelinesin Australia</a> <em>- 2020년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_User_Guide_for_Financial_Services_in_Brazil.pdf">AWS User Guide to Financial Services Regulations in Brazil – Brazilian National Monetary Council, Resolution 4,658</a> <em>- 2018년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_User_Guide_for_Banks_in_India.pdf">AWS User Guide to Banking Regulations &amp; Guidelines in India</a> <em>- 2017년 12월</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/whitepapers/compliance/KO_Whitepapers/Accenture_AWS_Security_Framework_MAS_Guidelines_Whitepaper.pdf">액센츄어 AWS 보안 프레임워크: 싱가포르 통화청 지침</a> <em>- 2016년, 액센추어 발간백서</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/pci-dss-scoping-on-aws.pdf">Architecting for PCI DSS Scoping and Segmentation on AWS</a> <em>- 2019년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws.pdf">Payment Card Industry Data Security Standard (PCI DSS)3.2.1 on AWS</a> <em>- 2020년 10월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/preparing-california-consumer-privacy-act.pdf">Preparing for the California Consumer Privacy Act</a> <em>- 2021년 11월 3일</em></li>
+<li>한글 - <a href="https://d1.awsstatic.com/whitepapers/ko_KR/Compliance/GDPR_Compliance_on_AWS.pdf">AWS에서 GDPR 규정준수 탐색</a> <em>-2018년 9월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/GDPR_Compliance_on_AWS.pdf">Navigating GDPR Compliance on AWS</a> <em>- 2019년 10월, 상기 'GDPR 규정준수 탐색'의 영문 최신판</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/using_aws_context_nhs_cloud_security_guidance.pdf">Using AWS in the Context of NHS Cloud Security Guidance</a> <em>- 2019년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/AWS-and-Cybersecurity-in-the-Financial-Services-Sector.pdf">AWS &amp; Cybersecurity in the Financial Services Sector</a> <em>- 2019년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/India_Data_Localisation_Controls.pdf">Data Localisation Controls for India</a> <em>- 2018년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Argentina_Privacy_Workbook.pdf">Argentina Personal Data Protection Law Disposition No.11/2006 Workbook</a> <em>- 2020년 9월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/FINMA_Regulatory_Guide.pdf">Swiss Financial Market Supervisory Authority (FINMA) Circular 2018/3</a> <em>- 2018년 4월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_FERPA_Whitepaper.pdf">FERPA Complianceon AWS Family Educational Rights and Privacy Act of 1974 (FERPA)</a> <em>- 2017년 12월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/guidance-for-nhs-trusts-adopting-aws-cloud-services.pdf">Guidance for NHS Trusts Adopting AWS Cloud Services</a> <em>- 2019년 9월</em></li>
+<li>영문 - <a href="https://www.us-cert.gov/sites/default/files/publications/Cloud_Security_Guidance-.gov_Cloud_Security_Baseline.pdf">Homeland Security - Cloud Security Guidance : gov Cloud Security Baselines</a> <em>- v0.2, 2018년 2월 28일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_Data_Classification.pdf">Data Classification - Secure Cloud Adoption</a> <em>- 2020년 3월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/LGPD_Compliance_on_AWS.pdf">Navigating LGPD Compliance on AWS</a> <em>- 2020년 3월, Brazilian General Data Protection Law</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/accreditation-models-for-secure-cloud-adoption.pdf">Accreditation Models for Secure Cloud Adoption</a> <em>- 2020년 6월</em> Archived</li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/architecting-on-amazon-ecs-for-pci-dss-compliance.pdf?did=wp_card&amp;trk=wp_card">Architecting on Amazon ECS for PCI DSS Compliance</a> <em>- 2020년 7월</em></li>
+<li>외부 백서 영문 - <a href="https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf">DEPARTMENT OF DEFENSE CLOUD COMPUTING SECURITY REQUIREMENTS GUIDE - ver.1 Rel.3</a> <em>- 2017년 3월 6일</em></li>
+<li>영문 - <a href="http://d1.awsstatic.com/whitepapers/compliance/aws_pci_3ds_whitepaper.pdf">AWS PCI 3DS WHITE PAPER</a> <em>- 2020년 11월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/pci-dss-scoping-on-aws.pdf">Architecting for PCI DSS Scoping and Segmentation on AWS</a> <em>- 2019년 5월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/machine-learning-in-financial-services-on-aws.pdf">Machine Learning Best Practices in Financial Services</a> <em>- 2020년 7월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/log-collection-into-splunk-with-control-tower.pdf">AWS Log Collection into Splunk Integrated with AWS Control Tower</a> <em>- 2020년 11월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Security/navigating-compliance-with-eu-data-transfer-requirements.pdf">Navigating Compliance with EU Data Transfer Requirements</a> <em>- 2021년 9월 7일</em></li>
+<li>영문 - <a href="https://access.awscloud.com/i/1412345-aws-eu-data-protection-and-the-data-economy/0?">EU dta protection and the data economy</a> <em>- 2021년 9월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/ML-best-practices-health-science.pdf">Machine Learning Best Practices in Healthcare and Life Sciences</a> <em>- 2021년 11월 22일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_DOD_CSM_Reference_Architecture.pdf">DoD-Compliant Implementations in AWS</a> <em>- 2021년 11월 3일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/Navigating_HCLS_Regulatory_and_Compliance_Requirements_on_AWS_2022.pdf">Navigating HCLS Regulatory and Compliance Requirements on AWS</a> <em>- 2022년 4월 13일</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/Whitepaper_Overcoming_the_Tension_Between_Data_Sovereignty_and_Accelerated_Digital_Transformation_2022.pdf">Trusted Cloud: Overcoming the Tension Between Data Sovereignty and Accelerated Digital Transformation</a> <em>- 2022년 3월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/institute/AWS-Sovereignty-and-Data-Localization-2022.pdf">Does data localization cause more problems than it solves?</a> <em>- 2022년 6월</em></li>
+<li>영문 - <a href="https://d1.awsstatic.com/whitepapers/compliance/AWS_User_Guide_to_Financial_Services_Regulations_and_Guidelines_in_NZ.pdf">AWS User Guide to Financial Services Regulations and Guidelines in New Zealand</a> <em>- 2022년 5월</em></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1983 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../AWS_Cost_Management/">
+      
+      
+        <link rel="next" href="../Quantum_Computing/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Management & Governance - AWS Security Center</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#management-governance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Security Center" class="md-header__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Security Center
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Management & Governance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Security Center" class="md-nav__button md-logo" aria-label="AWS Security Center" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AWS Security Center
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Change History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안서비스
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안서비스
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 관리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    인프라 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터 보안
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detective_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    거버넌스 & 탐지통제
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incident_response/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    침해 사고 대응
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    각 서비스 별 보안
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            각 서비스 별 보안
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking_Content_Delivery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking & Content Delivery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developer_Tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developer Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Media_Services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Media Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Machine_Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration_Transfer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration & Transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Application_Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Satellite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Satellite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Robotics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blockchain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blockchain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IoT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IoT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Customer_Engagement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customer Engagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Front-End%20Web%20%26%20Mobile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-End Web & Mobile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR_VR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AR & VR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Business_Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Business Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../End_User_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    End User Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Game_Development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS_Cost_Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Cost Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Management & Governance
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Auto Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFormation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opsworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpsWorks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Catalog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-license-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS License Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-health-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Health Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-chatbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Chatbot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-compute-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Compute Optimizer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Quotas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-fault-injection-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Fault Injection Simulator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-resilience-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Resilience Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-appconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS AppConfig
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-backint-agent-for-sap-hana" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Backint Agent for SAP HANA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-data-lifecycle-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Data Lifecycle Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Health
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-launch-wizard" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Launch Wizard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-managed-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Managed Grafana
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-managed-service-for-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Managed Service for Prometheus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-tag-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Tag Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management-governance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Management &amp; Governance과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quantum_Computing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum_Computing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SDK_Toolkit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK & Toolkits & ETC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 규정준수
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 규정준수
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    컴플라이언스 관련 정보
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance_faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    주요 질문 및 답변
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안 관련정보
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안 관련정보
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS 인프라
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_wp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    교육 및 백서
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands_on_labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    핸즈온 랩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AWS 보안파트너
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            AWS 보안파트너
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../global_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글로벌 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local_partners/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국내 파트너
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Auto Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFormation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opsworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpsWorks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Catalog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-license-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS License Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-health-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Health Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-chatbot" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Chatbot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-compute-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Compute Optimizer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Quotas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proton
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-fault-injection-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Fault Injection Simulator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-resilience-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Resilience Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-appconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS AppConfig
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-backint-agent-for-sap-hana" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Backint Agent for SAP HANA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-data-lifecycle-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Data Lifecycle Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Health
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-launch-wizard" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Launch Wizard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-managed-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Managed Grafana
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-managed-service-for-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Managed Service for Prometheus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-tag-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Tag Editor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management-governance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Management &amp; Governance과 관련된 기타 유용한 링크들
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remarks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="management-governance">Management &amp; Governance</h1>
+<p>AWS Orgnization, CloudWatch, CloudTrail, Config, Trusted Advisor, Control Tower, System Manager에 대한 내용은 AWS 보안 서비스의 각 보안 영역들에 포함되어 있습니다. 그 외의 관리 및 거버닝 서비스들이 제공하는 보안 기능에 대한 유용한 링크들은 아래에서 참조하실 수 있습니다.</p>
+<h2 id="aws-auto-scaling"><a href="https://aws.amazon.com/ko/autoscaling/?nc2=h_m1">AWS Auto Scaling</a></h2>
+<p>AWS Auto Scaling은 애플리케이션을 모니터링하고 용량을 자동으로 조정하여, 최대한 저렴한 비용으로 안정적이고 예측 가능한 성능을 유지합니다. AWS Auto Scaling의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/security.html">Amazon EC2 Auto Scaling의 보안</a></li>
+</ul>
+<h2 id="cloudformation"><a href="https://aws.amazon.com/ko/cloudformation/?nc2=h_m1">CloudFormation</a></h2>
+<p>AWS CloudFormation에서는 클라우드 환경 내 인프라 리소스를 모두 설명하고 프로비저닝할 수 있도록 공통 언어를 제공합니다. CloudFormation의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/security.html">AWS CloudFormation의 보안</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/cfn-sample-templates-ap-northeast-2.html">Asia Pacific (Seoul) Region 샘플 템플릿</a></li>
+<li>AWS Solutions - <a href="https://aws.amazon.com/solutions/aws-cloudformation-validation-pipeline/">AWS CloudFormation Validation Pipeline</a></li>
+<li>Quickstart - <a href="https://aws.amazon.com/quickstart/architecture/cicd-taskcat/">CI/CD Pipeline for AWS CloudFormation templates</a> <em>- 오픈소스인 TaskCat으로 CloudFormation 템플릿들을 테스팅하는 CodePipeline을 만들어 주는 퀵스타트</em></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=ZzD9I8ur6lg&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=21">Manage Compliance Across Accounts with AWS CloudFormation StackSets</a></li>
+<li>가이드 - <a href="https://docs.aws.amazon.com/ko_kr/prescriptive-guidance/latest/patterns/ensure-that-aws-cloudformation-stacks-are-launched-from-authorized-s3-buckets.html">Ensure that AWS CloudFormation stacks are launched from authorized S3 buckets</a></li>
+<li>GIT - <a href="https://github.com/KablamoOSS/cfn-macros?utm_campaign=ServerlessOps%20-%20Syndication&amp;utm_content=76863108&amp;utm_medium=social&amp;utm_source=twitter">CloudFormation Macro / Transform Examples</a></li>
+<li>GIT - <a href="https://github.com/aws-quickstart/taskcat">taskcat : testing CFN template</a></li>
+<li>GIT - <a href="https://github.com/aws-cloudformation/cfn-python-lint">CloudFormation Linter : Validation of CFN template</a> <em>– Python 기반으로 CloudFormation 템플릿의 보안점검 기능 제공 도구</em></li>
+<li>GIT - <a href="https://github.com/stelligent/cfn_nag">stelligent CFN_NAG : security check</a> <em>– Ruby 기반으로 CloudFormation 템플릿의 보안점검 기능 제공 도구(IAM, S/G, Access Log활성화, Encryption적용 체크 등)</em></li>
+<li>GIT - <a href="https://github.com/aws/aws-cdk">AWS Cloud Development Kit (AWS CDK)</a></li>
+<li><a href="https://cdkworkshop.com/">CDK Workshop</a></li>
+<li>GIT - <a href="https://github.com/aws-cloudformation/aws-cloudformation-coverage-roadmap">CloudFormation Public Coverage Roadmap</a></li>
+<li>GIT - <a href="https://github.com/aws-cloudformation/cloudformation-guard">AWS CloudFormation Guard</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/developer/working-with-the-aws-cloud-development-kit-and-aws-construct-library/">Working with the AWS Cloud Development Kit and AWS Construct Library</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/infrastructure-and-automation/multiple-account-multiple-region-aws-cloudformation/">Multiple-account, multiple-Region AWS CloudFormation</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/security/how-to-implement-the-principle-of-least-privilege-with-cloudformation-stacksets/">How to implement the principle of least privilege with CloudFormation StackSets</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/security/validate-iam-policies-in-cloudformation-templates-using-iam-access-analyzer/">Validate IAM policies in CloudFormation templates using IAM Access Analyzer</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/mt/policy-as-code-for-securing-aws-and-third-party-resource-types/">Policy-as-Code for Securing AWS and Third-Party Resource Types</a></li>
+</ul>
+<h2 id="opsworks"><a href="https://aws.amazon.com/ko/opsworks/?nc2=h_m1">OpsWorks</a></h2>
+<p>AWS OpsWorks는 Chef 및 Puppet의 관리형 인스턴스를 제공하는 구성 관리 서비스입니다. OpsWorks의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/opsworks/latest/userguide/workingsecurity.html">AWS OpsWorks Stacks 보안 및 권한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/opsworks/latest/userguide/security-opscm.html">AWS OpsWorks Configuration Management(CM)의 보안</a></li>
+</ul>
+<h2 id="service-catalog"><a href="https://aws.amazon.com/ko/servicecatalog/?nc2=h_m1">Service Catalog</a></h2>
+<p>AWS Service Catalog를 사용하는 조직은 AWS에서 사용이 승인된 IT 서비스 카탈로그를 생성하고 관리할 수 있습니다. Service Catalog의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/servicecatalog/latest/adminguide/security.html">AWS Service Catalog의 보안</a></li>
+<li>Best Practice - <a href="https://aws.amazon.com/ko/answers/devops/aws-service-catalog-validation-pipeline/">AWS Service Catalog Validation Pipeline</a> <em>– AWS Code시리즈를 이용하여 Service Catalog Product 템플릿의 자동화된 검증을 위한 환경을 만들어 주는 솔루션</em></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=PPybKJubMeY&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=30">Automate Account Creation Using AWS Service Catalog</a></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-service-catalog-factory#aws-service-catalog-factory">aws-service-catalog-factory</a> <em>- 멀티 리전을 지원하는 SC 포트폴리오를 구성</em></li>
+<li>GIT - <a href="https://github.com/awslabs/aws-service-catalog-puppet">aws-service-catalog-puppet</a> <em>- 멀티 어카운트 / 멀티 리전 환경에 SC Product을 배포</em></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/automate-account-creation-and-resource-provisioning-using-aws-service-catalog-aws-organizations-and-aws-lambda/">Automate account creation, and resource provisioning using AWS Service Catalog, AWS Organizations, and AWS Lambda</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/secure-cloud-assets-using-aws-service-catalogs-attribute-based-access-control/">Secure cloud assets using AWS Service Catalog’s Attribute Based Access Control</a></li>
+</ul>
+<h2 id="aws-license-manager"><a href="https://aws.amazon.com/ko/license-manager/?nc2=h_m1">AWS License Manager</a></h2>
+<p>AWS License Manager를 사용하면 AWS 및 온프레미스 서버에서 Microsoft, SAP, Oracle 및 IBM 같은 소프트웨어 공급업체의 라이선스를 더 쉽게 관리할 수 있습니다. AWS License Manager의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/license-manager/latest/userguide/security.html">AWS License Manager의 보안</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=BjiX41VKZ_c&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=28">Manage Licenses Across Multiple AWS Accounts with AWS License Manager</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=XXld4atfQ-0&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=29">Enforce License Rules with AWS License Manager</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=ikL5Axehutk&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=20">Manage Software Licenses with AWS License Manager</a></li>
+</ul>
+<h2 id="personal-health-dashboard"><a href="https://aws.amazon.com/ko/premiumsupport/technology/personal-health-dashboard/?nc2=h_m1">Personal Health Dashboard</a></h2>
+<p>AWS Personal Health Dashboard는 AWS에 고객에게 영향을 미칠 수 있는 이벤트가 발생할 때 알림 및 해결 지침을 제공합니다. Personal Health Dashboard의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/health/latest/ug/security.html">AWS Health의 보안</a></li>
+</ul>
+<h2 id="aws-chatbot"><a href="https://aws.amazon.com/ko/chatbot/?nc2=h_m1">AWS Chatbot</a></h2>
+<p>AWS Chatbot은 Slack 채널 및 Amazon Chime 채팅방을 통해 AWS 리소스를 쉽게 모니터링하고 상호 작용하도록 지원하는 대화형 에이전트입니다. AWS Chatbot의 보안관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/chatbot/latest/adminguide/security.html">Security in AWS Chatbot</a></li>
+</ul>
+<h2 id="aws-compute-optimizer"><a href="https://aws.amazon.com/ko/compute-optimizer/?nc1=h_ls">AWS Compute Optimizer</a></h2>
+<p>AWS Compute Optimizer는 과거 사용이력 메트릭들을 분석하는 기계학습기반을 이용하여 비용을 절감하고 성능을 향상시킬수 있는 최적화된 컴퓨트 리소스들을 제안해 드리는 서비스입니다. Compute Optimizer의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/compute-optimizer/latest/ug/security-iam.html">Controlling Access with AWS Identity and Access Management</a></li>
+</ul>
+<h2 id="resource-group"><a href="https://docs.aws.amazon.com/ko_kr/ARG/latest/userguide/welcome.html">Resource Group</a></h2>
+<p>리소스 그룹을 사용하여 AWS 리소스를 정리할 수 있습니다. 리소스 그룹을 사용하여 많은 리소스에 대한 작업을 한번에 관리하고 자동화할 수 있습니다. Resource Group의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/ARG/latest/userguide/security.html">AWS Resource Groups의 보안</a></li>
+</ul>
+<h2 id="service-quotas"><a href="https://docs.aws.amazon.com/ko_kr/servicequotas/latest/userguide/intro.html">Service Quotas</a></h2>
+<p>Service Quotas은 한 곳에서 100개가 넘는 AWS 서비스에 대한 할당량을 관리하는 데 도움이 되는 AWS 서비스입니다. 할당량 값을 조회하는 것과 함께 Service Quotas 콘솔에서 할당량 증가를 요청할 수도 있습니다. Service Quotas의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/servicequotas/latest/userguide/security.html">Security in Service Quotas</a></li>
+</ul>
+<h2 id="proton"><a href="https://aws.amazon.com/ko/proton/">Proton</a></h2>
+<p>AWS Proton은 컨테이너 및 서버리스 애플리케이션을 위한 최초의 완전관리형 애플리케이션 배포 서비스입니다. 플랫폼 엔지니어링 팀은 AWS Proton을 사용하여 인프라 프로비저닝, 코드 배포, 모니터링, 업데이트에 필요한 각종 도구를 연결하고 조정할 수 있습니다. Proton의 보안 관련 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-security.html">Security in Proton</a></li>
+<li>GIT - <a href="https://github.com/aws-samples/aws-proton-sample-templates">AWS Proton sample templates</a></li>
+</ul>
+<h2 id="aws-fault-injection-simulator"><a href="https://aws.amazon.com/fis/">AWS Fault Injection Simulator</a></h2>
+<p>AWS Fault Injection Simulator는 장애를 주입하고 어떤 일이 발생하는지 볼 수 있도록 하여 AWS 워크로드에 대한 통제 된 실험을 수행하는 데 도움이 되는 AWS 서비스입니다. 이를 통해 시스템이 다양한 유형의 오류에 어떻게 반응하는지 배우고, 오류 모드를 더 잘 이해할 수 있습니다. AWS Fault Injection Simulator는 기능들은 아래와 같습니다.</p>
+<p><strong>Bookmark</strong></p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/fis/latest/userguide/security.html">AWS Fault Injection Simulator의 보안</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/korea/aws-fault-injection-simulator-use-controlled-experiments-to-boost-resilience/">AWS Fault Injection Simulator 정식 출시 – 제어된 장애 주입 실험을 통한 복원력 향상 (서울 리전 포함)</a></li>
+</ul>
+<h2 id="aws-resilience-hub"><a href="https://aws.amazon.com/resilience-hub/">AWS Resilience Hub</a></h2>
+<p>AWS Resilience Hub 는 여러분의 AWS 어플리케이션의 Resiliency 를 정의하고 유효성을 검증하고 추적하기 위한 통합된 환경을 제공합니다. </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/security.html">Security in AWS Resilience Hub</a></li>
+</ul>
+<h2 id="aws-appconfig"><a href="https://docs.aws.amazon.com/ko_kr/appconfig/">AWS AppConfig</a></h2>
+<p>AWS AppConfig를 사용하여 애플리케이션 구성을 어떤 크기의 애플리케이션에든 신속하게 배포할 수 있습니다. AWS AppConfig는 제어된 배포를 지원하며 검증 및 모니터링 기능을 기본으로 포함하고 있습니다.  </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/appconfig/latest/userguide/appconfig-security.html">AWS AppConfig의 보안</a></li>
+</ul>
+<h2 id="aws-backint-agent-for-sap-hana"><a href="https://docs.aws.amazon.com/ko_kr/backint/">AWS Backint Agent for SAP HANA</a></h2>
+<p>AWS Resilience Hub 는 여러분의 AWS 어플리케이션의 Resiliency 를 정의하고 유효성을 검증하고 추적하기 위한 통합된 환경을 제공합니다. </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/sap/latest/sap-hana/migrating-hana-security.html">Migrating SAP HANA to AWS : Security</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/sap/latest/sap-hana/hana-ops-security.html">SAP HANA on AWS Operations : Security</a></li>
+</ul>
+<h2 id="aws-data-lifecycle-manager"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">AWS Data Lifecycle Manager</a></h2>
+<p>Amazon 데이터 수명 주기 관리자에서는 AWS 리소스의 수명 주기를 관리할 수 있습니다. 수명 주기 정책을 생성하여 특정 리소스에 대한 작업을 자동화합니다.</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dlm-prerequisites.html">IAM</a></li>
+</ul>
+<h2 id="aws-health"><a href="https://docs.aws.amazon.com/ko_kr/health/latest/ug/what-is-aws-health.html">AWS Health</a></h2>
+<p>AWS Health는 사용자의 AWS 인프라에 영향을 미칠 수 있는 이벤트에 대한 맞춤형 정보를 제공하고, 예정된 변경 사항을 안내하고, 사용자의 AWS 리소스 및 계정에 영향을 미치는 문제를 신속하게 해결할 수 있게 합니다. </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/health/latest/ug/security.html">AWS Health의 보안</a></li>
+</ul>
+<h2 id="aws-launch-wizard"><a href="https://aws.amazon.com/ko/launchwizard/">AWS Launch Wizard</a></h2>
+<p>AWS Launch Wizard는 개별 AWS 리소스를 수동으로 식별하고 프로비저닝하지 않고도 AWS 리소스를 Microsoft SQL Server Always On 및 HANA 기반 SAP 시스템과 같은 서드 파티 애플리케이션용으로 크기 조정, 구성 및 배포하는 과정으로 안내합니다.  </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/launchwizard/latest/userguide/launch-wizard-security.html">AWS Launch Wizard security</a></li>
+</ul>
+<h2 id="aws-managed-grafana"><a href="https://aws.amazon.com/ko/grafana/">AWS Managed Grafana</a></h2>
+<p>Amazon Managed Grafana는 Grafana Labs와 협력하여 개발한 오픈 소스 Grafana용 완전관리형 서비스입니다. Grafana는 지표가 저장된 위치에 관계없이 지표를 쿼리하고, 시각화하고, 알리고, 이해할 수 있도록 지원하는 널리 사용되는 오픈 소스 분석 플랫폼입니다.</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/grafana/latest/userguide/security.html">Security in Amazon Managed Grafana</a></li>
+<li>Blog - <a href="https://aws.amazon.com/ko/blogs/opensource/setting-up-amazon-managed-grafana-cross-account-data-source-using-customer-managed-iam-roles/">Setting up Amazon Managed Grafana cross-account data source using customer managed IAM roles</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/mt/fine-grained-access-control-in-amazon-managed-grafana-using-grafana-teams/">Fine-grained access control in Amazon Managed Grafana using Grafana Teams</a></li>
+<li>Blog - <a href="https://aws.amazon.com/blogs/opensource/authenticating-with-amazon-managed-grafana-using-open-source-keycloak-on-amazon-eks/">Authenticating with Amazon Managed Grafana Using Open Source Keycloak on Amazon EKS</a></li>
+</ul>
+<h2 id="aws-managed-service-for-prometheus"><a href="https://aws.amazon.com/ko/prometheus/">AWS Managed Service for Prometheus</a></h2>
+<p>Amazon Managed Service for Prometheus(AMP)는 대규모의 컨테이너형 애플리케이션 및 인프라를 쉽게 모니터링할 수 있는 새로운 Prometheus 호환 모니터링 및 알림 서비스입니다. </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/prometheus/latest/userguide/security.html">Security in Amazon Managed Service for Prometheus</a></li>
+</ul>
+<h2 id="aws-tag-editor"><a href="https://docs.aws.amazon.com/ko_kr/ARG/latest/userguide/tag-editor.html">AWS Tag Editor</a></h2>
+<p>태그란 AWS 리소스를 식별하고 정리할 때 사용할 수 있는 메타데이터 역할을 하는 단어 또는 문구입니다. 리소스에는 최대 50개 사용자 적용 태그가 포함될 수 있습니다. 또한 읽기 전용 시스템 태그가 포함될 수 있습니다. 각 태그는 키와 하나의 값(선택 사항)으로 구성됩니다. </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/ARG/latest/userguide/tagging.html">AWS 리소스에 태그 지정</a></li>
+</ul>
+<h2 id="management-governance_1">Management &amp; Governance과 관련된 기타 유용한 링크들</h2>
+<ul>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=eyMjXEwuygc&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=18">Manage Security Configurations with Chef InSpec</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=HA59eSImPaw&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=14">Run Automations Across Multiple AWS Regions and Accounts</a></li>
+<li>동영상 - <a href="https://www.youtube.com/watch?v=jANYuCqnJEI&amp;list=PLhr1KZpdzukcaA06WloeNmGlnM_f1LrdP&amp;index=11">Maintain Compliance with Ansible Playbooks</a></li>
+<li>Solutions - <a href="https://aws.amazon.com/solutions/implementations/tag-tamer/?did=sl_card&amp;trk=sl_card">Tag Tamer</a></li>
+</ul>
+<h2 id="remarks">Remarks</h2>
+<ul>
+<li>이 사이트의 모든 내용은 바뀌거나 수정될 수 있습니다.</li>
+<li>공식적인 상세한 내용은 http://aws.amazon.com 의 내용을 참조하십시오.</li>
+<li>제공되는 내용에 이견이 있거나 잘못된 링크를 발견하시면, 관리자(gisunlim@amazon.com)에게 메일을 주시면 대단히 감사하겠습니다.</li>
+</ul>
+<hr />
+<p><a href="https://aws.amazon.com/privacy/?nc1=f_pr">개인 정보 보호 정책</a> | <a href="https://aws.amazon.com/terms/?nc1=f_pr">사이트 이용 약관</a> | © 2020, Amazon Web Services, Inc. 또는 자회사. All rights reserved. </p>
+<script type="text/javascript" src="http://www.websitegoodies.com/counter.php?id=72613&color=%23183fd8"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Feedbacks - gisunlim@amazon.com (Gisung Lim, Security Specialist SA, AWS Korea)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
